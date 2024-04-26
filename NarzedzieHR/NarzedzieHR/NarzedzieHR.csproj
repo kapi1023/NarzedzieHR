@@ -179,6 +179,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Login\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Login\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Benefit.cs" />
     <Compile Include="Models\Credentials.cs" />
     <Compile Include="Models\Dzial.cs" />
@@ -189,6 +195,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\AuthService.cs" />
     <Compile Include="Service\PasswordHasher.cs" />
+    <EmbeddedResource Include="Forms\Login\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -213,7 +222,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Forms\Login\" />
     <Folder Include="Forms\Pracownik\" />
     <Folder Include="Forms\Raport\" />
     <Folder Include="Forms\Umowa\" />
