@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace NarzedzieHR
 {
-    public partial class Form1 : Form
+    public partial class LandingPage : Form
     {
-        public Form1()
+        public LandingPage()
         {
             InitializeComponent();
         }

@@ -1,10 +1,46 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\NarzedzieHR\\NarzedzieHR\\",
+  "WorkspaceRootPath": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|c:\\narzedziehr\\narzedziehr\\narzedziehr\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|c:\\users\\lolka\\desktop\\narzedziehr\\narzedziehr\\narzedziehr\\service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|c:\\users\\lolka\\desktop\\narzedziehr\\narzedziehr\\narzedziehr\\helper\\passwordhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\helper\\passwordhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|c:\\users\\lolka\\desktop\\narzedziehr\\narzedziehr\\narzedziehr\\service\\pracownikservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\service\\pracownikservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|c:\\users\\lolka\\desktop\\narzedziehr\\narzedziehr\\narzedziehr\\service\\dzialservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\service\\dzialservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|c:\\users\\lolka\\desktop\\narzedziehr\\narzedziehr\\narzedziehr\\forms\\login\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\forms\\login\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|c:\\users\\lolka\\desktop\\narzedziehr\\narzedziehr\\narzedziehr\\forms\\login\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\forms\\login\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|c:\\users\\lolka\\desktop\\narzedziehr\\narzedziehr\\narzedziehr\\forms\\main\\landingpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\forms\\main\\landingpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|c:\\users\\lolka\\desktop\\narzedziehr\\narzedziehr\\narzedziehr\\service\\raportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\service\\raportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|c:\\users\\lolka\\desktop\\narzedziehr\\narzedziehr\\narzedziehr\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|c:\\users\\lolka\\desktop\\narzedziehr\\narzedziehr\\narzedziehr\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,18 +55,131 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Form1.cs [Projekt]",
-              "DocumentMoniker": "C:\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Form1.cs",
-              "RelativeDocumentMoniker": "NarzedzieHR\\Form1.cs",
-              "ToolTip": "C:\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Form1.cs [Projekt]",
-              "RelativeToolTip": "NarzedzieHR\\Form1.cs [Projekt]",
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\AuthService.cs",
+              "RelativeDocumentMoniker": "NarzedzieHR\\Service\\AuthService.cs",
+              "ToolTip": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\AuthService.cs",
+              "RelativeToolTip": "NarzedzieHR\\Service\\AuthService.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAiwB8AAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-16T15:11:49.934Z",
+              "WhenOpened": "2024-05-17T07:57:32.103Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LandingPage.cs [Projekt]",
+              "DocumentMoniker": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Main\\LandingPage.cs",
+              "RelativeDocumentMoniker": "NarzedzieHR\\Forms\\Main\\LandingPage.cs",
+              "ToolTip": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Main\\LandingPage.cs [Projekt]",
+              "RelativeToolTip": "NarzedzieHR\\Forms\\Main\\LandingPage.cs [Projekt]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-17T15:18:04.387Z",
               "EditorCaption": " [Projekt]"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Login.cs",
+              "DocumentMoniker": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Login\\Login.cs",
+              "RelativeDocumentMoniker": "NarzedzieHR\\Forms\\Login\\Login.cs",
+              "ToolTip": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Login\\Login.cs",
+              "RelativeToolTip": "NarzedzieHR\\Forms\\Login\\Login.cs",
+              "ViewState": "AQIAACgAAAAAAAAAAAAqwDYAAABQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-17T15:11:51.786Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Login.cs [Projekt]",
+              "DocumentMoniker": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Login\\Login.cs",
+              "RelativeDocumentMoniker": "NarzedzieHR\\Forms\\Login\\Login.cs",
+              "ToolTip": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Login\\Login.cs [Projekt]",
+              "RelativeToolTip": "NarzedzieHR\\Forms\\Login\\Login.cs [Projekt]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-17T15:09:45.894Z",
+              "EditorCaption": " [Projekt]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PracownikService.cs",
+              "DocumentMoniker": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\PracownikService.cs",
+              "RelativeDocumentMoniker": "NarzedzieHR\\Service\\PracownikService.cs",
+              "ToolTip": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\PracownikService.cs",
+              "RelativeToolTip": "NarzedzieHR\\Service\\PracownikService.cs",
+              "ViewState": "AQIAAGgAAAAAAAAAAADwv3MAAABKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-17T15:04:25.127Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PasswordHelper.cs",
+              "DocumentMoniker": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Helper\\PasswordHelper.cs",
+              "RelativeDocumentMoniker": "NarzedzieHR\\Helper\\PasswordHelper.cs",
+              "ToolTip": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Helper\\PasswordHelper.cs",
+              "RelativeToolTip": "NarzedzieHR\\Helper\\PasswordHelper.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAiwB4AAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-17T15:00:36.842Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "RaportService.cs",
+              "DocumentMoniker": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\RaportService.cs",
+              "RelativeDocumentMoniker": "NarzedzieHR\\Service\\RaportService.cs",
+              "ToolTip": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\RaportService.cs",
+              "RelativeToolTip": "NarzedzieHR\\Service\\RaportService.cs",
+              "ViewState": "AQIAADEAAAAAAAAAAAAiwGEAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-17T08:43:34Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DzialService.cs",
+              "DocumentMoniker": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\DzialService.cs",
+              "RelativeDocumentMoniker": "NarzedzieHR\\Service\\DzialService.cs",
+              "ToolTip": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\DzialService.cs",
+              "RelativeToolTip": "NarzedzieHR\\Service\\DzialService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAIMAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-17T15:02:40.769Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "NarzedzieHR\\Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Form1.Designer.cs",
+              "RelativeToolTip": "NarzedzieHR\\Form1.Designer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-17T15:15:10.138Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Form1.cs",
+              "RelativeDocumentMoniker": "NarzedzieHR\\Form1.cs",
+              "ToolTip": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Form1.cs",
+              "RelativeToolTip": "NarzedzieHR\\Form1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-17T15:15:08.009Z",
+              "EditorCaption": ""
             }
           ]
         }

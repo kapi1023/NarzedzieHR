@@ -1,0 +1,15 @@
+C:\Users\lolka\Desktop\NarzedzieHR\NarzedzieHR\NarzedzieHR\obj\Debug\NarzedzieHR.csproj.AssemblyReference.cache
+C:\Users\lolka\Desktop\NarzedzieHR\NarzedzieHR\NarzedzieHR\obj\Debug\NarzedzieHR.Forms.Login.Login.resources
+C:\Users\lolka\Desktop\NarzedzieHR\NarzedzieHR\NarzedzieHR\obj\Debug\NarzedzieHR.Properties.Resources.resources
+C:\Users\lolka\Desktop\NarzedzieHR\NarzedzieHR\NarzedzieHR\obj\Debug\NarzedzieHR.csproj.GenerateResource.cache
+C:\Users\lolka\Desktop\NarzedzieHR\NarzedzieHR\NarzedzieHR\obj\Debug\NarzedzieHR.csproj.CoreCompileInputs.cache
+C:\Users\lolka\Desktop\NarzedzieHR\NarzedzieHR\NarzedzieHR\bin\Debug\NarzedzieHR.exe.config
+C:\Users\lolka\Desktop\NarzedzieHR\NarzedzieHR\NarzedzieHR\bin\Debug\NarzedzieHR.exe
+C:\Users\lolka\Desktop\NarzedzieHR\NarzedzieHR\NarzedzieHR\bin\Debug\NarzedzieHR.pdb
+C:\Users\lolka\Desktop\NarzedzieHR\NarzedzieHR\NarzedzieHR\bin\Debug\System.Buffers.dll
+C:\Users\lolka\Desktop\NarzedzieHR\NarzedzieHR\NarzedzieHR\bin\Debug\System.Data.SqlClient.dll
+C:\Users\lolka\Desktop\NarzedzieHR\NarzedzieHR\NarzedzieHR\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\lolka\Desktop\NarzedzieHR\NarzedzieHR\NarzedzieHR\bin\Debug\System.Data.SqlClient.xml
+C:\Users\lolka\Desktop\NarzedzieHR\NarzedzieHR\NarzedzieHR\obj\Debug\Narzedzi.85D78923.Up2Date
+C:\Users\lolka\Desktop\NarzedzieHR\NarzedzieHR\NarzedzieHR\obj\Debug\NarzedzieHR.exe
+C:\Users\lolka\Desktop\NarzedzieHR\NarzedzieHR\NarzedzieHR\obj\Debug\NarzedzieHR.pdb

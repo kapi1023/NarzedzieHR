@@ -1,6 +1,6 @@
 ﻿namespace NarzedzieHR
 {
-    partial class Form1
+    partial class LandingPage
     {
         /// <summary>
         /// Wymagana zmienna projektanta.
