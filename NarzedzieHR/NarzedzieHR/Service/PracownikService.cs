@@ -1,14 +1,12 @@
 ﻿using NarzedzieHR.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NarzedzieHR.Service
 {
-    internal class PracownikService
+    public class PracownikService
     {
         private readonly string _connectionString;
 
@@ -17,35 +15,19 @@ namespace NarzedzieHR.Service
             _connectionString = connectionString;
         }
 
-        public IEnumerable<PracownikModel> GetAllPracownicy()
+        public DataTable GetAllPracownicy()
         {
-            List<PracownikModel> pracownicy = new List<PracownikModel>();
+            DataTable dataTable = new DataTable();
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand("SELECT * FROM Pracownik", connection);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
 
                 try
                 {
                     connection.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-
-                    while (reader.Read())
-                    {
-                        PracownikModel pracownik = new PracownikModel
-                        {
-                            Id = (int)reader["Id"],
-                            Imie = (string)reader["Imie"],
-                            Nazwisko = (string)reader["Nazwisko"],
-                            Email = (string)reader["Email"],
-                            DataZatrudnienia = (DateTime)reader["DataZatrudnienia"],
-                            StanowiskoId = (int)reader["StanowiskoId"]
-                        };
-
-                        pracownicy.Add(pracownik);
-                    }
-
-                    reader.Close();
+                    dataAdapter.Fill(dataTable);
                 }
                 catch (Exception ex)
                 {
@@ -53,7 +35,7 @@ namespace NarzedzieHR.Service
                 }
             }
 
-            return pracownicy;
+            return dataTable;
         }
 
         public bool AddPracownik(PracownikModel pracownik)

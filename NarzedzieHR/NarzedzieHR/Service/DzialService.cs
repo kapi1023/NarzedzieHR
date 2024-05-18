@@ -1,10 +1,8 @@
 ﻿using NarzedzieHR.Models;
 using System;
-using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace NarzedzieHR.Service
 {
@@ -12,32 +10,19 @@ namespace NarzedzieHR.Service
     {
         private readonly string _connectionString = "data source=sql.bsite.net\\MSSQL2016;initial catalog=kapi1023_;user id=kapi1023_;password=Haslo123#$";
 
-        public IEnumerable<DzialModel> GetAllDzialy()
+        public DataTable GetAllDzialy()
         {
-            List<DzialModel> dzialy = new List<DzialModel>();
+            DataTable dataTable = new DataTable();
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand("SELECT * FROM Dzial", connection);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
 
                 try
                 {
                     connection.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-
-                    while (reader.Read())
-                    {
-                        DzialModel dzial = new DzialModel
-                        {
-                            Id = (int)reader["Id"],
-                            Nazwa = (string)reader["Nazwa"],
-                            Opis = (string)reader["Opis"]
-                        };
-
-                        dzialy.Add(dzial);
-                    }
-
-                    reader.Close();
+                    dataAdapter.Fill(dataTable);
                 }
                 catch (Exception ex)
                 {
@@ -45,7 +30,7 @@ namespace NarzedzieHR.Service
                 }
             }
 
-            return dzialy;
+            return dataTable;
         }
 
         public bool AddDzial(DzialModel dzial)
@@ -99,17 +84,17 @@ namespace NarzedzieHR.Service
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                // Check if the Dzial has associated Pracownik
+                // Check if the Dzial has associated Stanowisko
                 SqlCommand checkCommand = new SqlCommand("SELECT COUNT(*) FROM Stanowisko WHERE DzialId = @DzialId", connection);
                 checkCommand.Parameters.AddWithValue("@DzialId", dzialId);
 
                 try
                 {
                     connection.Open();
-                    int employeeCount = (int)checkCommand.ExecuteScalar();
+                    int stanowiskoCount = (int)checkCommand.ExecuteScalar();
 
-                    if (employeeCount > 0)
-                        return false; // Cannot delete Dzial with associated Pracownik
+                    if (stanowiskoCount > 0)
+                        return false; // Cannot delete Dzial with associated Stanowisko
 
                     SqlCommand deleteCommand = new SqlCommand("DELETE FROM Dzial WHERE Id = @Id", connection);
                     deleteCommand.Parameters.AddWithValue("@Id", dzialId);

@@ -10,35 +10,19 @@ namespace NarzedzieHR.Service
     {
         private readonly string _connectionString = "data source=sql.bsite.net\\MSSQL2016;initial catalog=kapi1023_;user id=kapi1023_;password=Haslo123#$";
 
-
-        public IEnumerable<StanowiskoModel> GetAllStanowiska()
+        public DataTable GetAllStanowiska()
         {
-            List<StanowiskoModel> stanowiska = new List<StanowiskoModel>();
+            DataTable dataTable = new DataTable();
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = new SqlCommand("SELECT * FROM Stanowisko", connection);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
 
                 try
                 {
                     connection.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-
-                    while (reader.Read())
-                    {
-                        StanowiskoModel stanowisko = new StanowiskoModel
-                        {
-                            Id = (int)reader["Id"],
-                            Nazwa = (string)reader["Nazwa"],
-                            Opis = (string)reader["Opis"],
-                            DzialId = (int)reader["DzialId"],
-                            StawkaWynagrodzenia = (decimal)reader["StawkaWynagrodzenia"]
-                        };
-
-                        stanowiska.Add(stanowisko);
-                    }
-
-                    reader.Close();
+                    dataAdapter.Fill(dataTable);
                 }
                 catch (Exception ex)
                 {
@@ -46,7 +30,7 @@ namespace NarzedzieHR.Service
                 }
             }
 
-            return stanowiska;
+            return dataTable;
         }
 
         public bool AddStanowisko(StanowiskoModel stanowisko)
@@ -99,6 +83,7 @@ namespace NarzedzieHR.Service
                 }
             }
         }
+
         public int GetDzialIdForStanowisko(int stanowiskoId)
         {
             int dzialId = 0;

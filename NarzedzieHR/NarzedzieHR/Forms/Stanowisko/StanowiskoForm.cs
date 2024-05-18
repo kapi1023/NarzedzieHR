@@ -27,7 +27,7 @@ namespace NarzedzieHR.Forms.Stanowisko
         }
         private void LoadDepartments()
         {
-            IEnumerable<DzialModel> departments = _dzialService.GetAllDzialy();
+            IEnumerable<DzialModel> departments = ConvertToDzialModels(_dzialService.GetAllDzialy());
             cbxDepartments.DataSource = departments;
             cbxDepartments.DisplayMember = "Nazwa";
             cbxDepartments.ValueMember = "Id";
@@ -35,11 +35,28 @@ namespace NarzedzieHR.Forms.Stanowisko
 
         private void LoadStanowiska()
         {
-            IEnumerable<StanowiskoModel> stanowiska = _stanowiskoService.GetAllStanowiska();
+            DataTable stanowiska = _stanowiskoService.GetAllStanowiska();
             dataGridViewDepartments.DataSource = stanowiska;
         }
 
+        private IEnumerable<DzialModel> ConvertToDzialModels(DataTable table)
+        {
+            List<DzialModel> departments = new List<DzialModel>();
 
+            foreach (DataRow row in table.Rows)
+            {
+                DzialModel department = new DzialModel
+                {
+                    Id = Convert.ToInt32(row["Id"]),
+                    Nazwa = Convert.ToString(row["Nazwa"]),
+                    Opis = Convert.ToString(row["Opis"])
+                };
+
+                departments.Add(department);
+            }
+
+            return departments;
+        }
         private void dataGridViewPositions_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)

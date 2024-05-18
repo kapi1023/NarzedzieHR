@@ -1,12 +1,154 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|c:\\users\\lolka\\desktop\\narzedziehr\\narzedziehr\\narzedziehr\\forms\\stanowisko\\stanowiskoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\forms\\stanowisko\\stanowiskoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|c:\\users\\lolka\\desktop\\narzedziehr\\narzedziehr\\narzedziehr\\forms\\stanowisko\\stanowiskoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\forms\\stanowisko\\stanowiskoform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|c:\\users\\lolka\\desktop\\narzedziehr\\narzedziehr\\narzedziehr\\forms\\dzial\\dzialform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\forms\\dzial\\dzialform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|c:\\users\\lolka\\desktop\\narzedziehr\\narzedziehr\\narzedziehr\\forms\\dzial\\dzialform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\forms\\dzial\\dzialform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|c:\\users\\lolka\\desktop\\narzedziehr\\narzedziehr\\narzedziehr\\service\\stanowiskoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\service\\stanowiskoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|c:\\users\\lolka\\desktop\\narzedziehr\\narzedziehr\\narzedziehr\\service\\dzialservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\service\\dzialservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|c:\\users\\lolka\\desktop\\narzedziehr\\narzedziehr\\narzedziehr\\service\\pracownikservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\service\\pracownikservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|c:\\users\\lolka\\desktop\\narzedziehr\\narzedziehr\\narzedziehr\\service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DzialForm.cs",
+              "DocumentMoniker": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Dzial\\DzialForm.cs",
+              "RelativeDocumentMoniker": "NarzedzieHR\\Forms\\Dzial\\DzialForm.cs",
+              "ToolTip": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Dzial\\DzialForm.cs",
+              "RelativeToolTip": "NarzedzieHR\\Forms\\Dzial\\DzialForm.cs",
+              "ViewState": "AQIAAGIAAAAAAAAAAAAuwGYAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-18T17:37:58.306Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DzialForm.cs [Projekt]",
+              "DocumentMoniker": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Dzial\\DzialForm.cs",
+              "RelativeDocumentMoniker": "NarzedzieHR\\Forms\\Dzial\\DzialForm.cs",
+              "ToolTip": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Dzial\\DzialForm.cs [Projekt]",
+              "RelativeToolTip": "NarzedzieHR\\Forms\\Dzial\\DzialForm.cs [Projekt]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-18T17:37:39.877Z",
+              "EditorCaption": " [Projekt]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StanowiskoForm.cs [Projekt]",
+              "DocumentMoniker": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Stanowisko\\StanowiskoForm.cs",
+              "RelativeDocumentMoniker": "NarzedzieHR\\Forms\\Stanowisko\\StanowiskoForm.cs",
+              "ToolTip": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Stanowisko\\StanowiskoForm.cs [Projekt]",
+              "RelativeToolTip": "NarzedzieHR\\Forms\\Stanowisko\\StanowiskoForm.cs [Projekt]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-18T17:37:19.067Z",
+              "EditorCaption": " [Projekt]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "StanowiskoService.cs",
+              "DocumentMoniker": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\StanowiskoService.cs",
+              "RelativeDocumentMoniker": "NarzedzieHR\\Service\\StanowiskoService.cs",
+              "ToolTip": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\StanowiskoService.cs",
+              "RelativeToolTip": "NarzedzieHR\\Service\\StanowiskoService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-18T17:35:18.106Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "StanowiskoForm.cs",
+              "DocumentMoniker": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Stanowisko\\StanowiskoForm.cs",
+              "RelativeDocumentMoniker": "NarzedzieHR\\Forms\\Stanowisko\\StanowiskoForm.cs",
+              "ToolTip": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Stanowisko\\StanowiskoForm.cs",
+              "RelativeToolTip": "NarzedzieHR\\Forms\\Stanowisko\\StanowiskoForm.cs",
+              "ViewState": "AQIAAIMAAAAAAAAAAAAiwE0AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-18T17:34:40.546Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DzialService.cs",
+              "DocumentMoniker": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\DzialService.cs",
+              "RelativeDocumentMoniker": "NarzedzieHR\\Service\\DzialService.cs",
+              "ToolTip": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\DzialService.cs",
+              "RelativeToolTip": "NarzedzieHR\\Service\\DzialService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-18T17:33:14.904Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PracownikService.cs",
+              "DocumentMoniker": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\PracownikService.cs",
+              "RelativeDocumentMoniker": "NarzedzieHR\\Service\\PracownikService.cs",
+              "ToolTip": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\PracownikService.cs",
+              "RelativeToolTip": "NarzedzieHR\\Service\\PracownikService.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAIsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-18T17:31:34.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\AuthService.cs",
+              "RelativeDocumentMoniker": "NarzedzieHR\\Service\\AuthService.cs",
+              "ToolTip": "C:\\Users\\lolka\\Desktop\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\AuthService.cs",
+              "RelativeToolTip": "NarzedzieHR\\Service\\AuthService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-18T17:31:33.642Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

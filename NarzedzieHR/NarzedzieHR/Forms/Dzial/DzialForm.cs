@@ -14,43 +14,21 @@ namespace NarzedzieHR.Forms.Dzial
 {
     public partial class DzialForm : Form
     {
-        private readonly DzialService _dzialService;
-
         public DzialForm()
         {
             InitializeComponent();
             _dzialService = new DzialService();
             LoadDepartments();
         }
+        private readonly DzialService _dzialService;
 
 
         private void LoadDepartments()
         {
-            IEnumerable<Models.DzialModel> departments = _dzialService.GetAllDzialy();
-            DataTable departmentsTable = ConvertToDataTable(departments);
-
+            DataTable departmentsTable = _dzialService.GetAllDzialy();
             dataGridViewDepartments.DataSource = departmentsTable;
-
-        }
-        private DataTable ConvertToDataTable(IEnumerable<Models.DzialModel> dzialy)
-        {
-            DataTable table = new DataTable();
-            table.Columns.Add("Id", typeof(int));
-            table.Columns.Add("Nazwa", typeof(string));
-            table.Columns.Add("Opis", typeof(string));
-
-            foreach (Models.DzialModel dzial in dzialy)
-            {
-                table.Rows.Add(dzial.Id, dzial.Nazwa, dzial.Opis);
-            }
-
-            return table;
         }
 
-        private void Dzial_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
@@ -124,12 +102,12 @@ namespace NarzedzieHR.Forms.Dzial
             }
         }
 
-        private void dataGridViewDepartments_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void Dzial2Form_Load(object sender, EventArgs e)
         {
- 
+
         }
 
-        private void dataGridViewDepartments_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewDepartments_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
