@@ -31,12 +31,11 @@ namespace NarzedzieHR.Forms.Login
             string username = txtUsername.Text;
             string password = txtPassword.Text;
 
-            // Wywołanie metody autoryzacji z AuthService
             bool isAuthenticated = _authService.AuthenticateUser(username, password);
 
             if (isAuthenticated)
             {
-                MessageBox.Show("Login successful!");
+                //MessageBox.Show("Login successful!");
                 // Przekierowanie do innego formularza po pomyślnym zalogowaniu
                 Main.LandingPage landingPageForm = new Main.LandingPage();
                 landingPageForm.Show();
@@ -51,12 +50,11 @@ namespace NarzedzieHR.Forms.Login
         private void btnDebug_Click(object sender, EventArgs e)
         {
 
-            // Wywołanie metody autoryzacji z AuthService
             bool isAuthenticated = _authService.AuthenticateUser("admin", "admin");
 
             if (isAuthenticated)
             {
-                MessageBox.Show("Login successful!");
+                // MessageBox.Show("Login successful!");
                 // Przekierowanie do innego formularza po pomyślnym zalogowaniu
                 Main.LandingPage landingPageForm = new Main.LandingPage();
                 landingPageForm.Show();

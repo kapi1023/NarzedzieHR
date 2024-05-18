@@ -1,4 +1,5 @@
 ﻿using NarzedzieHR.Forms.Dzial;
+using NarzedzieHR.Forms.Stanowisko;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +28,12 @@ namespace NarzedzieHR.Forms.Main
         private void LandingPage_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnStanowisko_Click(object sender, EventArgs e)
+        {
+            StanowiskoForm stanowisko = new StanowiskoForm();
+            stanowisko.Show();
         }
     }
 }

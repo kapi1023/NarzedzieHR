@@ -15,3 +15,4 @@ C:\Users\lolka\Desktop\NarzedzieHR\NarzedzieHR\NarzedzieHR\obj\Debug\NarzedzieHR
 C:\Users\lolka\Desktop\NarzedzieHR\NarzedzieHR\NarzedzieHR\obj\Debug\NarzedzieHR.pdb
 C:\Users\lolka\Desktop\NarzedzieHR\NarzedzieHR\NarzedzieHR\obj\Debug\NarzedzieHR.Forms.Dzial.DzialForm.resources
 C:\Users\lolka\Desktop\NarzedzieHR\NarzedzieHR\NarzedzieHR\obj\Debug\NarzedzieHR.Forms.Main.LandingPage.resources
+C:\Users\lolka\Desktop\NarzedzieHR\NarzedzieHR\NarzedzieHR\obj\Debug\NarzedzieHR.Forms.Stanowisko.StanowiskoForm.resources

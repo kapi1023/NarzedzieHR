@@ -22,9 +22,6 @@ namespace NarzedzieHR.Models
 
         public int DzialId { get; set; }
 
-        [ForeignKey("DzialId")]
-        public DzialModel Dzial { get; set; }
-
         [Column(TypeName = "decimal(18, 2)")]
         public decimal StawkaWynagrodzenia { get; set; }
     }
