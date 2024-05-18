@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NarzedzieHR.Models
 {
-    public class Raport
+    public class RaportModel
     {
         [Key]
         public int Id { get; set; }
@@ -23,11 +23,11 @@ namespace NarzedzieHR.Models
         public int PracownikId { get; set; }
 
         [ForeignKey("PracownikId")]
-        public Pracownik Pracownik { get; set; }
+        public PracownikModel Pracownik { get; set; }
 
         public int StanowiskoId { get; set; }
 
         [ForeignKey("StanowiskoId")]
-        public Stanowisko Stanowisko { get; set; }
+        public StanowiskoModel Stanowisko { get; set; }
     }
 }

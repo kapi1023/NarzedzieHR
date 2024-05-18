@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NarzedzieHR.Models
 {
-    public class Dzial
+    public class BenefitModel
     {
         [Key]
         public int Id { get; set; }
@@ -19,5 +19,13 @@ namespace NarzedzieHR.Models
 
         [StringLength(255)]
         public string Opis { get; set; }
+
+        [Column(TypeName = "decimal(18, 2)")]
+        public decimal Wartosc { get; set; }
+
+        public int StanowiskoId { get; set; }
+
+        [ForeignKey("StanowiskoId")]
+        public StanowiskoModel Stanowisko { get; set; }
     }
 }

@@ -17,9 +17,9 @@ namespace NarzedzieHR.Service
             _connectionString = connectionString;
         }
 
-        public IEnumerable<Pracownik> GetAllPracownicy()
+        public IEnumerable<PracownikModel> GetAllPracownicy()
         {
-            List<Pracownik> pracownicy = new List<Pracownik>();
+            List<PracownikModel> pracownicy = new List<PracownikModel>();
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -32,7 +32,7 @@ namespace NarzedzieHR.Service
 
                     while (reader.Read())
                     {
-                        Pracownik pracownik = new Pracownik
+                        PracownikModel pracownik = new PracownikModel
                         {
                             Id = (int)reader["Id"],
                             Imie = (string)reader["Imie"],
@@ -56,7 +56,7 @@ namespace NarzedzieHR.Service
             return pracownicy;
         }
 
-        public bool AddPracownik(Pracownik pracownik)
+        public bool AddPracownik(PracownikModel pracownik)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -82,7 +82,7 @@ namespace NarzedzieHR.Service
             }
         }
 
-        public bool UpdatePracownik(Pracownik pracownik)
+        public bool UpdatePracownik(PracownikModel pracownik)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {

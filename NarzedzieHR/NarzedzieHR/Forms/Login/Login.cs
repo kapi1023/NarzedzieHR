@@ -38,7 +38,7 @@ namespace NarzedzieHR.Forms.Login
             {
                 MessageBox.Show("Login successful!");
                 // Przekierowanie do innego formularza po pomyślnym zalogowaniu
-                LandingPage landingPageForm = new LandingPage();
+                Main.LandingPage landingPageForm = new Main.LandingPage();
                 landingPageForm.Show();
                 this.Hide(); // Ukrycie formularza logowania
             }
@@ -58,7 +58,7 @@ namespace NarzedzieHR.Forms.Login
             {
                 MessageBox.Show("Login successful!");
                 // Przekierowanie do innego formularza po pomyślnym zalogowaniu
-                LandingPage landingPageForm = new LandingPage();
+                Main.LandingPage landingPageForm = new Main.LandingPage();
                 landingPageForm.Show();
                 this.Hide(); // Ukrycie formularza logowania
             }

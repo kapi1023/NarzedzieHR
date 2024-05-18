@@ -8,24 +8,22 @@ using System.Threading.Tasks;
 
 namespace NarzedzieHR.Models
 {
-    public class Stanowisko
+    public class CredentialModel
     {
         [Key]
         public int Id { get; set; }
 
         [Required]
         [StringLength(100)]
-        public string Nazwa { get; set; }
+        public string Login { get; set; }
 
-        [StringLength(255)]
-        public string Opis { get; set; }
+        [Required]
+        [StringLength(100)]
+        public string Haslo { get; set; }
 
-        public int DzialId { get; set; }
+        public int PracownikId { get; set; }
 
-        [ForeignKey("DzialId")]
-        public Dzial Dzial { get; set; }
-
-        [Column(TypeName = "decimal(18, 2)")]
-        public decimal StawkaWynagrodzenia { get; set; }
+        [ForeignKey("PracownikId")]
+        public PracownikModel Pracownik { get; set; }
     }
 }

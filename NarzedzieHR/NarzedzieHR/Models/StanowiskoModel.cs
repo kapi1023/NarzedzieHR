@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NarzedzieHR.Models
 {
-    public class Benefit
+    public class StanowiskoModel
     {
         [Key]
         public int Id { get; set; }
@@ -20,12 +20,12 @@ namespace NarzedzieHR.Models
         [StringLength(255)]
         public string Opis { get; set; }
 
+        public int DzialId { get; set; }
+
+        [ForeignKey("DzialId")]
+        public DzialModel Dzial { get; set; }
+
         [Column(TypeName = "decimal(18, 2)")]
-        public decimal Wartosc { get; set; }
-
-        public int StanowiskoId { get; set; }
-
-        [ForeignKey("StanowiskoId")]
-        public Stanowisko Stanowisko { get; set; }
+        public decimal StawkaWynagrodzenia { get; set; }
     }
 }

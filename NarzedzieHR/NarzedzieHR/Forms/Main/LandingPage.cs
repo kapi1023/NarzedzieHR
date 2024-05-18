@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NarzedzieHR.Forms.Dzial;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,17 @@ namespace NarzedzieHR.Forms.Main
         public LandingPage()
         {
             InitializeComponent();
+        }
+
+        private void btnDzial_Click(object sender, EventArgs e)
+        {
+            DzialForm dzialForm = new DzialForm();
+            dzialForm.Show();
+        }
+
+        private void LandingPage_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

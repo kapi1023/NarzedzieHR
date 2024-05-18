@@ -8,18 +8,13 @@ using System.Threading.Tasks;
 
 namespace NarzedzieHR.Service
 {
-    internal class DzialService
+    public class DzialService
     {
-        private readonly string _connectionString;
+        private readonly string _connectionString = "data source=sql.bsite.net\\MSSQL2016;initial catalog=kapi1023_;user id=kapi1023_;password=Haslo123#$";
 
-        public DzialService(string connectionString)
+        public IEnumerable<DzialModel> GetAllDzialy()
         {
-            _connectionString = connectionString;
-        }
-
-        public IEnumerable<Dzial> GetAllDzialy()
-        {
-            List<Dzial> dzialy = new List<Dzial>();
+            List<DzialModel> dzialy = new List<DzialModel>();
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -32,7 +27,7 @@ namespace NarzedzieHR.Service
 
                     while (reader.Read())
                     {
-                        Dzial dzial = new Dzial
+                        DzialModel dzial = new DzialModel
                         {
                             Id = (int)reader["Id"],
                             Nazwa = (string)reader["Nazwa"],
@@ -53,7 +48,7 @@ namespace NarzedzieHR.Service
             return dzialy;
         }
 
-        public bool AddDzial(Dzial dzial)
+        public bool AddDzial(DzialModel dzial)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -76,7 +71,7 @@ namespace NarzedzieHR.Service
             }
         }
 
-        public bool UpdateDzial(Dzial dzial)
+        public bool UpdateDzial(DzialModel dzial)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -105,7 +100,7 @@ namespace NarzedzieHR.Service
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 // Check if the Dzial has associated Pracownik
-                SqlCommand checkCommand = new SqlCommand("SELECT COUNT(*) FROM Pracownik WHERE DzialId = @DzialId", connection);
+                SqlCommand checkCommand = new SqlCommand("SELECT COUNT(*) FROM Stanowisko WHERE DzialId = @DzialId", connection);
                 checkCommand.Parameters.AddWithValue("@DzialId", dzialId);
 
                 try

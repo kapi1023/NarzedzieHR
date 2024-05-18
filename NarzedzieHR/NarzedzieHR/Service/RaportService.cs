@@ -20,9 +20,9 @@ namespace NarzedzieHR.Service
                 _connectionString = connectionString;
             }
 
-            public IEnumerable<Raport> GetAllReports()
+            public IEnumerable<RaportModel> GetAllReports()
             {
-                List<Raport> reports = new List<Raport>();
+                List<RaportModel> reports = new List<RaportModel>();
 
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
@@ -36,7 +36,7 @@ namespace NarzedzieHR.Service
 
                         foreach (DataRow row in dataSet.Tables["Raport"].Rows)
                         {
-                            Raport report = new Raport
+                            RaportModel report = new RaportModel
                             {
                                 Id = (int)row["Id"],
                                 DateTime = (DateTime)row["DateTime"],
@@ -58,9 +58,9 @@ namespace NarzedzieHR.Service
                 return reports;
             }
 
-            public IEnumerable<Raport> GetUserReports(int pracownikId)
+            public IEnumerable<RaportModel> GetUserReports(int pracownikId)
             {
-                List<Raport> userReports = new List<Raport>();
+                List<RaportModel> userReports = new List<RaportModel>();
 
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
@@ -75,7 +75,7 @@ namespace NarzedzieHR.Service
 
                         foreach (DataRow row in dataSet.Tables["Raport"].Rows)
                         {
-                            Raport report = new Raport
+                            RaportModel report = new RaportModel
                             {
                                 Id = (int)row["Id"],
                                 DateTime = (DateTime)row["DateTime"],
@@ -97,7 +97,7 @@ namespace NarzedzieHR.Service
                 return userReports;
             }
 
-            public bool CreateReport(Raport report)
+            public bool CreateReport(RaportModel report)
             {
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
@@ -130,7 +130,7 @@ namespace NarzedzieHR.Service
                 }
             }
 
-            public bool UpdateReport(Raport report)
+            public bool UpdateReport(RaportModel report)
             {
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {

@@ -24,20 +24,19 @@ namespace NarzedzieHR.Service
                     adapter.Fill(dataSet, "Credentials");
 
                     if (dataSet.Tables["Credentials"].Rows.Count != 1)
-                        return false; // User not found
+                        return false; 
 
                     string storedPassword = dataSet.Tables["Credentials"].Rows[0]["Haslo"].ToString();
 
-                    // Compare stored hashed password with the provided password
                     if (Helper.PasswordHelper.VerifyHashedPassword(storedPassword, password))
-                        return true; // Authentication successful
+                        return true; 
                     else
-                        return false; // Incorrect password
+                        return false; 
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
-                    return false; // Error occurred during authentication
+                    return false;
                 }
             }
         }

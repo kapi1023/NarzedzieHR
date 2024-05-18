@@ -13,3 +13,5 @@ C:\Users\lolka\Desktop\NarzedzieHR\NarzedzieHR\NarzedzieHR\bin\Debug\System.Data
 C:\Users\lolka\Desktop\NarzedzieHR\NarzedzieHR\NarzedzieHR\obj\Debug\Narzedzi.85D78923.Up2Date
 C:\Users\lolka\Desktop\NarzedzieHR\NarzedzieHR\NarzedzieHR\obj\Debug\NarzedzieHR.exe
 C:\Users\lolka\Desktop\NarzedzieHR\NarzedzieHR\NarzedzieHR\obj\Debug\NarzedzieHR.pdb
+C:\Users\lolka\Desktop\NarzedzieHR\NarzedzieHR\NarzedzieHR\obj\Debug\NarzedzieHR.Forms.Dzial.DzialForm.resources
+C:\Users\lolka\Desktop\NarzedzieHR\NarzedzieHR\NarzedzieHR\obj\Debug\NarzedzieHR.Forms.Main.LandingPage.resources
