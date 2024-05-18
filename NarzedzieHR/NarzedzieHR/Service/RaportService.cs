@@ -12,91 +12,88 @@ namespace NarzedzieHR.Service
         {
             DataTable dataTable = new DataTable();
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            try
             {
-                SqlCommand command = new SqlCommand("SELECT * FROM Reports WHERE EmployeeId = @EmployeeId", connection);
-                command.Parameters.AddWithValue("@EmployeeId", employeeId);
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
-
-                try
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
-                    connection.Open();
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter();
+                    dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM Reports WHERE EmployeeId = @EmployeeId", connection);
+                    dataAdapter.SelectCommand.Parameters.AddWithValue("@EmployeeId", employeeId);
                     dataAdapter.Fill(dataTable);
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
 
             return dataTable;
         }
-
         public bool AddReport(int employeeId, string reportText)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            try
             {
-                SqlCommand command = new SqlCommand("INSERT INTO Reports (EmployeeId, ReportText) VALUES (@EmployeeId, @ReportText)", connection);
-                command.Parameters.AddWithValue("@EmployeeId", employeeId);
-                command.Parameters.AddWithValue("@ReportText", reportText);
-
-                try
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter();
+                    dataAdapter.InsertCommand = new SqlCommand("INSERT INTO Reports (EmployeeId, ReportText) VALUES (@EmployeeId, @ReportText)", connection);
+                    dataAdapter.InsertCommand.Parameters.AddWithValue("@EmployeeId", employeeId);
+                    dataAdapter.InsertCommand.Parameters.AddWithValue("@ReportText", reportText);
                     connection.Open();
-                    int rowsAffected = command.ExecuteNonQuery();
+                    int rowsAffected = dataAdapter.InsertCommand.ExecuteNonQuery();
 
                     return rowsAffected > 0;
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                    return false;
-                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
             }
         }
 
         public bool UpdateReport(int reportId, string reportText)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            try
             {
-                SqlCommand command = new SqlCommand("UPDATE Reports SET ReportText = @ReportText WHERE Id = @ReportId", connection);
-                command.Parameters.AddWithValue("@ReportText", reportText);
-                command.Parameters.AddWithValue("@ReportId", reportId);
-
-                try
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter();
+                    dataAdapter.UpdateCommand = new SqlCommand("UPDATE Reports SET ReportText = @ReportText WHERE Id = @ReportId", connection);
+                    dataAdapter.UpdateCommand.Parameters.AddWithValue("@ReportText", reportText);
+                    dataAdapter.UpdateCommand.Parameters.AddWithValue("@ReportId", reportId);
                     connection.Open();
-                    int rowsAffected = command.ExecuteNonQuery();
+                    int rowsAffected = dataAdapter.UpdateCommand.ExecuteNonQuery();
 
                     return rowsAffected > 0;
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                    return false;
-                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
             }
         }
 
         public bool DeleteReport(int reportId)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            try
             {
-                SqlCommand deleteCommand = new SqlCommand("DELETE FROM Reports WHERE Id = @ReportId", connection);
-                deleteCommand.Parameters.AddWithValue("@ReportId", reportId);
-
-                try
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter();
+                    dataAdapter.DeleteCommand = new SqlCommand("DELETE FROM Reports WHERE Id = @ReportId", connection);
+                    dataAdapter.DeleteCommand.Parameters.AddWithValue("@ReportId", reportId);
                     connection.Open();
-                    int rowsAffected = deleteCommand.ExecuteNonQuery();
+                    int rowsAffected = dataAdapter.DeleteCommand.ExecuteNonQuery();
 
                     return rowsAffected > 0;
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                    return false;
-                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
             }
         }
     }

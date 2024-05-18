@@ -10,105 +10,105 @@ namespace NarzedzieHR.Service
     {
         private readonly string _connectionString = "data source=sql.bsite.net\\MSSQL2016;initial catalog=kapi1023_;user id=kapi1023_;password=Haslo123#$";
 
-        public DataTable GetAllDzialy()
+        public DataSet GetAllDzialy()
         {
-            DataTable dataTable = new DataTable();
+            DataSet dataSet = new DataSet();
 
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            try
             {
-                SqlCommand command = new SqlCommand("SELECT * FROM Dzial", connection);
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
-
-                try
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
-                    connection.Open();
-                    dataAdapter.Fill(dataTable);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter();
+                    dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM Dzial", connection);
+                    dataAdapter.Fill(dataSet, "Dzial");
                 }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
-            return dataTable;
+            return dataSet;
         }
 
         public bool AddDzial(DzialModel dzial)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            try
             {
-                SqlCommand command = new SqlCommand("INSERT INTO Dzial (Nazwa, Opis) VALUES (@Nazwa, @Opis)", connection);
-                command.Parameters.AddWithValue("@Nazwa", dzial.Nazwa);
-                command.Parameters.AddWithValue("@Opis", dzial.Opis);
-
-                try
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter();
+                    dataAdapter.InsertCommand = new SqlCommand("INSERT INTO Dzial (Nazwa, Opis) VALUES (@Nazwa, @Opis)", connection);
+                    dataAdapter.InsertCommand.Parameters.AddWithValue("@Nazwa", dzial.Nazwa);
+                    dataAdapter.InsertCommand.Parameters.AddWithValue("@Opis", dzial.Opis);
                     connection.Open();
-                    int rowsAffected = command.ExecuteNonQuery();
+                    int rowsAffected = dataAdapter.InsertCommand.ExecuteNonQuery();
 
                     return rowsAffected > 0;
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                    return false;
-                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
             }
         }
 
         public bool UpdateDzial(DzialModel dzial)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            try
             {
-                SqlCommand command = new SqlCommand("UPDATE Dzial SET Nazwa = @Nazwa, Opis = @Opis WHERE Id = @Id", connection);
-                command.Parameters.AddWithValue("@Nazwa", dzial.Nazwa);
-                command.Parameters.AddWithValue("@Opis", dzial.Opis);
-                command.Parameters.AddWithValue("@Id", dzial.Id);
-
-                try
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter();
+                    dataAdapter.UpdateCommand = new SqlCommand("UPDATE Dzial SET Nazwa = @Nazwa, Opis = @Opis WHERE Id = @Id", connection);
+                    dataAdapter.UpdateCommand.Parameters.AddWithValue("@Nazwa", dzial.Nazwa);
+                    dataAdapter.UpdateCommand.Parameters.AddWithValue("@Opis", dzial.Opis);
+                    dataAdapter.UpdateCommand.Parameters.AddWithValue("@Id", dzial.Id);
                     connection.Open();
-                    int rowsAffected = command.ExecuteNonQuery();
+                    int rowsAffected = dataAdapter.UpdateCommand.ExecuteNonQuery();
 
                     return rowsAffected > 0;
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                    return false;
-                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
             }
         }
 
         public bool DeleteDzial(int dzialId)
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            try
             {
-                // Check if the Dzial has associated Stanowisko
-                SqlCommand checkCommand = new SqlCommand("SELECT COUNT(*) FROM Stanowisko WHERE DzialId = @DzialId", connection);
-                checkCommand.Parameters.AddWithValue("@DzialId", dzialId);
-
-                try
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
-                    connection.Open();
-                    int stanowiskoCount = (int)checkCommand.ExecuteScalar();
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter();
+                    dataAdapter.SelectCommand = new SqlCommand("SELECT COUNT(*) FROM Stanowisko WHERE DzialId = @DzialId", connection);
+                    dataAdapter.SelectCommand.Parameters.AddWithValue("@DzialId", dzialId);
+                    DataTable dataTable = new DataTable();
+                    dataAdapter.Fill(dataTable);
+
+                    int stanowiskoCount = (int)dataTable.Rows[0][0];
 
                     if (stanowiskoCount > 0)
                         return false; // Cannot delete Dzial with associated Stanowisko
 
-                    SqlCommand deleteCommand = new SqlCommand("DELETE FROM Dzial WHERE Id = @Id", connection);
-                    deleteCommand.Parameters.AddWithValue("@Id", dzialId);
-
-                    int rowsAffected = deleteCommand.ExecuteNonQuery();
+                    dataAdapter.DeleteCommand = new SqlCommand("DELETE FROM Dzial WHERE Id = @Id", connection);
+                    dataAdapter.DeleteCommand.Parameters.AddWithValue("@Id", dzialId);
+                    connection.Open();
+                    int rowsAffected = dataAdapter.DeleteCommand.ExecuteNonQuery();
 
                     return rowsAffected > 0;
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                    return false;
-                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
             }
         }
+
     }
 }

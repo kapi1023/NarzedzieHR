@@ -27,7 +27,9 @@ namespace NarzedzieHR.Forms.Stanowisko
         }
         private void LoadDepartments()
         {
-            IEnumerable<DzialModel> departments = ConvertToDzialModels(_dzialService.GetAllDzialy());
+            DataSet dataSet = _dzialService.GetAllDzialy();
+            DataTable departmentsTable = dataSet.Tables["Stanowiska"];
+            IEnumerable<DzialModel> departments = ConvertToDzialModels(departmentsTable);
             cbxDepartments.DataSource = departments;
             cbxDepartments.DisplayMember = "Nazwa";
             cbxDepartments.ValueMember = "Id";

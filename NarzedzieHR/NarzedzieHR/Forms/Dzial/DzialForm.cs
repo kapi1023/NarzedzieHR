@@ -19,87 +19,18 @@ namespace NarzedzieHR.Forms.Dzial
             InitializeComponent();
             _dzialService = new DzialService();
             LoadDepartments();
+            bindingNavigatorDzialy.BindingSource = bindingSourceDzialy;
         }
+        private DataGridViewRow _editedRow;
+
         private readonly DzialService _dzialService;
 
 
         private void LoadDepartments()
         {
-            DataTable departmentsTable = _dzialService.GetAllDzialy();
-            dataGridViewDepartments.DataSource = departmentsTable;
-        }
-
-
-        private void btnDodaj_Click(object sender, EventArgs e)
-        {
-            string nazwa = txtNazwa.Text;
-            string opis = txtOpis.Text;
-
-            DzialModel dzial = new DzialModel { Nazwa = nazwa, Opis = opis };
-
-            bool success = _dzialService.AddDzial(dzial);
-
-            if (success)
-            {
-                MessageBox.Show("Department added successfully.");
-                LoadDepartments();
-            }
-            else
-            {
-                MessageBox.Show("Error adding department.");
-            }
-        }
-
-        private void btnEdytuj_Click(object sender, EventArgs e)
-        {
-            if (dataGridViewDepartments.SelectedRows.Count > 0)
-            {
-                int departmentId = Convert.ToInt32(dataGridViewDepartments.SelectedRows[0].Cells["Id"].Value);
-                string nazwa = txtNazwa.Text;
-                string opis = txtOpis.Text;
-
-                DzialModel dzial = new DzialModel { Id = departmentId, Nazwa = nazwa, Opis = opis };
-
-                bool success = _dzialService.UpdateDzial(dzial);
-
-                if (success)
-                {
-                    MessageBox.Show("Department updated successfully.");
-                    LoadDepartments();
-                }
-                else
-                {
-                    MessageBox.Show("Error updating department.");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Select a department to update.");
-            }
-        }
-
-        private void btnUsun_Click(object sender, EventArgs e)
-        {
-            if (dataGridViewDepartments.SelectedRows.Count > 0)
-            {
-                int departmentId = Convert.ToInt32(dataGridViewDepartments.SelectedRows[0].Cells["Id"].Value);
-
-                bool success = _dzialService.DeleteDzial(departmentId);
-
-                if (success)
-                {
-                    MessageBox.Show("Department deleted successfully.");
-                    LoadDepartments();
-                }
-                else
-                {
-                    MessageBox.Show("Error deleting department. Department may have associated employees.");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Select a department to delete.");
-            }
+            DataSet departmentsTable = _dzialService.GetAllDzialy();
+            bindingSourceDzialy.DataSource = departmentsTable.Tables["Dzial"];
+            dataGridViewDepartments.DataSource = bindingSourceDzialy;
         }
 
         private void Dzial2Form_Load(object sender, EventArgs e)
@@ -109,12 +40,116 @@ namespace NarzedzieHR.Forms.Dzial
 
         private void dataGridViewDepartments_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+        }
+
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewDepartments.SelectedRows.Count == 0)
             {
-                DataGridViewRow row = dataGridViewDepartments.Rows[e.RowIndex];
-                txtNazwa.Text = row.Cells["Nazwa"].Value.ToString();
-                txtOpis.Text = row.Cells["Opis"].Value.ToString();
+                MessageBox.Show("Select a department to delete.");
+                return;
+            }
+            if (dataGridViewDepartments.SelectedRows[0].Index == dataGridViewDepartments.Rows.Count - 1)
+            {
+                MessageBox.Show("Cannot delete the last row.");
+                return;
+            }
+
+            DataRowView currentRow = (DataRowView)bindingSourceDzialy.Current;
+            int departmentId = Convert.ToInt32(currentRow["Id"]);
+
+            bool success = _dzialService.DeleteDzial(departmentId);
+
+            if (success)
+            {
+                MessageBox.Show("Department deleted successfully.");
+                LoadDepartments();
+            }
+            else
+            {
+                MessageBox.Show("Error deleting department. Department may have associated employees.");
             }
         }
+
+        private void bindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            DataGridViewSelectedRowCollection selectedRows = dataGridViewDepartments.SelectedRows;
+
+            if (selectedRows.Count == 0)
+            {
+                MessageBox.Show("No department is being edited.");
+                return;
+            }
+
+            DataGridViewRow editedRow = selectedRows[0];
+
+            string nazwa = editedRow.Cells["Nazwa"].Value.ToString();
+            string opis = editedRow.Cells["Opis"].Value.ToString();
+
+            if (string.IsNullOrEmpty(nazwa) || string.IsNullOrEmpty(opis))
+            {
+                MessageBox.Show("Department name and description are required.");
+                return;
+            }
+
+            DataRowView currentRow = (DataRowView)editedRow.DataBoundItem;
+            int departmentId = Convert.ToInt32(currentRow["Id"]);
+            DzialModel dzial = new DzialModel { Id = departmentId, Nazwa = nazwa, Opis = opis };
+
+            bool success = _dzialService.UpdateDzial(dzial);
+
+            if (success)
+            {
+                MessageBox.Show("Department updated successfully.");
+                LoadDepartments();
+            }
+            else
+            {
+                MessageBox.Show("Error updating department.");
+            }
+        }
+
+        private void dataGridViewDepartments_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridViewDepartments_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == dataGridViewDepartments.Rows.Count - 2 && e.ColumnIndex == dataGridViewDepartments.Columns.Count - 1)
+            {
+                string nazwa = dataGridViewDepartments.Rows[e.RowIndex].Cells["Nazwa"].Value.ToString();
+                string opis = dataGridViewDepartments.Rows[e.RowIndex].Cells["Opis"].Value.ToString();
+
+                if (string.IsNullOrEmpty(nazwa) || string.IsNullOrEmpty(opis))
+                {
+                    MessageBox.Show("Department name and description are required.");
+                    return;
+                }
+
+                DzialModel dzial = new DzialModel { Nazwa = nazwa, Opis = opis };
+
+                bool success = _dzialService.AddDzial(dzial);
+
+                if (!success)
+                {
+                    MessageBox.Show("Error adding department.");
+                    return;
+                }
+
+                MessageBox.Show("Department added successfully.");
+                LoadDepartments();
+            }
+
+        }
+
+        private void bindingNavigatorDzialy_RefreshItems(object sender, EventArgs e)
+        {
+
+        }
+
+
+
     }
 }

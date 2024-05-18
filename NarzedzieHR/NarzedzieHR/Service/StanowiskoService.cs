@@ -37,16 +37,17 @@ namespace NarzedzieHR.Service
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                SqlCommand command = new SqlCommand("INSERT INTO Stanowisko (Nazwa, Opis, DzialId, StawkaWynagrodzenia) VALUES (@Nazwa, @Opis, @DzialId, @StawkaWynagrodzenia)", connection);
-                command.Parameters.AddWithValue("@Nazwa", stanowisko.Nazwa);
-                command.Parameters.AddWithValue("@Opis", stanowisko.Opis);
-                command.Parameters.AddWithValue("@DzialId", stanowisko.DzialId);
-                command.Parameters.AddWithValue("@StawkaWynagrodzenia", stanowisko.StawkaWynagrodzenia);
-
                 try
                 {
                     connection.Open();
-                    int rowsAffected = command.ExecuteNonQuery();
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    SqlCommand command = new SqlCommand("INSERT INTO Stanowisko (Nazwa, Opis, DzialId, StawkaWynagrodzenia) VALUES (@Nazwa, @Opis, @DzialId, @StawkaWynagrodzenia)", connection);
+                    command.Parameters.AddWithValue("@Nazwa", stanowisko.Nazwa);
+                    command.Parameters.AddWithValue("@Opis", stanowisko.Opis);
+                    command.Parameters.AddWithValue("@DzialId", stanowisko.DzialId);
+                    command.Parameters.AddWithValue("@StawkaWynagrodzenia", stanowisko.StawkaWynagrodzenia);
+                    adapter.InsertCommand = command;
+                    int rowsAffected = adapter.InsertCommand.ExecuteNonQuery();
 
                     return rowsAffected > 0;
                 }
@@ -62,17 +63,18 @@ namespace NarzedzieHR.Service
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                SqlCommand command = new SqlCommand("UPDATE Stanowisko SET Nazwa = @Nazwa, Opis = @Opis, DzialId = @DzialId, StawkaWynagrodzenia = @StawkaWynagrodzenia WHERE Id = @Id", connection);
-                command.Parameters.AddWithValue("@Nazwa", stanowisko.Nazwa);
-                command.Parameters.AddWithValue("@Opis", stanowisko.Opis);
-                command.Parameters.AddWithValue("@DzialId", stanowisko.DzialId);
-                command.Parameters.AddWithValue("@StawkaWynagrodzenia", stanowisko.StawkaWynagrodzenia);
-                command.Parameters.AddWithValue("@Id", stanowisko.Id);
-
                 try
                 {
                     connection.Open();
-                    int rowsAffected = command.ExecuteNonQuery();
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    SqlCommand command = new SqlCommand("UPDATE Stanowisko SET Nazwa = @Nazwa, Opis = @Opis, DzialId = @DzialId, StawkaWynagrodzenia = @StawkaWynagrodzenia WHERE Id = @Id", connection);
+                    command.Parameters.AddWithValue("@Nazwa", stanowisko.Nazwa);
+                    command.Parameters.AddWithValue("@Opis", stanowisko.Opis);
+                    command.Parameters.AddWithValue("@DzialId", stanowisko.DzialId);
+                    command.Parameters.AddWithValue("@StawkaWynagrodzenia", stanowisko.StawkaWynagrodzenia);
+                    command.Parameters.AddWithValue("@Id", stanowisko.Id);
+                    adapter.UpdateCommand = command;
+                    int rowsAffected = adapter.UpdateCommand.ExecuteNonQuery();
 
                     return rowsAffected > 0;
                 }
@@ -90,13 +92,14 @@ namespace NarzedzieHR.Service
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                SqlCommand command = new SqlCommand("SELECT DzialId FROM Stanowisko WHERE Id = @Id", connection);
-                command.Parameters.AddWithValue("@Id", stanowiskoId);
-
                 try
                 {
                     connection.Open();
-                    object result = command.ExecuteScalar();
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    SqlCommand command = new SqlCommand("SELECT DzialId FROM Stanowisko WHERE Id = @Id", connection);
+                    command.Parameters.AddWithValue("@Id", stanowiskoId);
+                    adapter.SelectCommand = command;
+                    object result = adapter.SelectCommand.ExecuteScalar();
 
                     if (result != null && result != DBNull.Value)
                     {
@@ -116,13 +119,14 @@ namespace NarzedzieHR.Service
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                SqlCommand deleteCommand = new SqlCommand("DELETE FROM Stanowisko WHERE Id = @Id", connection);
-                deleteCommand.Parameters.AddWithValue("@Id", stanowiskoId);
-
                 try
                 {
                     connection.Open();
-                    int rowsAffected = deleteCommand.ExecuteNonQuery();
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    SqlCommand deleteCommand = new SqlCommand("DELETE FROM Stanowisko WHERE Id = @Id", connection);
+                    deleteCommand.Parameters.AddWithValue("@Id", stanowiskoId);
+                    adapter.DeleteCommand = deleteCommand;
+                    int rowsAffected = adapter.DeleteCommand.ExecuteNonQuery();
 
                     return rowsAffected > 0;
                 }
