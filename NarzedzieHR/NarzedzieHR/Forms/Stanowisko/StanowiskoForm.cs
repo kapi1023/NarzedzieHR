@@ -2,12 +2,8 @@
 using NarzedzieHR.Service;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NarzedzieHR.Forms.Stanowisko
@@ -16,116 +12,192 @@ namespace NarzedzieHR.Forms.Stanowisko
     {
         private readonly StanowiskoService _stanowiskoService;
         private readonly DzialService _dzialService;
-        private int selectedPositionId = -1;
+        private readonly BenefitService _benefitService;
+
         public StanowiskoForm()
         {
             InitializeComponent();
             _stanowiskoService = new StanowiskoService();
             _dzialService = new DzialService();
+            _benefitService = new BenefitService();
             LoadDepartments();
             LoadStanowiska();
+            LoadBenefits();
+
+            ConfigureBindingNavigator();
         }
+
         private void LoadDepartments()
         {
             DataSet dataSet = _dzialService.GetAllDzialy();
-            DataTable departmentsTable = dataSet.Tables["Stanowiska"];
-            IEnumerable<DzialModel> departments = ConvertToDzialModels(departmentsTable);
-            cbxDepartments.DataSource = departments;
+            DataTable departmentsTable = dataSet.Tables["Dzial"];
+            cbxDepartments.DataSource = ConvertToDzialModels(departmentsTable);
             cbxDepartments.DisplayMember = "Nazwa";
             cbxDepartments.ValueMember = "Id";
         }
 
         private void LoadStanowiska()
         {
-            DataTable stanowiska = _stanowiskoService.GetAllStanowiska();
-            dataGridViewDepartments.DataSource = stanowiska;
+            DataSet dataSet = _stanowiskoService.GetAllStanowiska();
+            bindingSourceStanowisko.DataSource = dataSet.Tables["Table"];
+            dataGridViewStanowiska.DataSource = bindingSourceStanowisko;
+        }
+        private void LoadBenefits() // Dodane
+        {
+            DataSet dataSet = _benefitService.GetAllBenefits();
+            List<BenefitModel> benefits = ConvertToBenefitModels(dataSet);
+            cbxBenefits.DataSource = benefits;
+            cbxBenefits.DisplayMember = "Nazwa";
+            cbxBenefits.ValueMember = "Id";
+        }
+
+        private void ConfigureBindingNavigator()
+        {
+            bindingNavigatorStanowisko.BindingSource = bindingSourceStanowisko;
         }
 
         private IEnumerable<DzialModel> ConvertToDzialModels(DataTable table)
         {
-            List<DzialModel> departments = new List<DzialModel>();
-
-            foreach (DataRow row in table.Rows)
+            return table.AsEnumerable().Select(row => new DzialModel
             {
-                DzialModel department = new DzialModel
+                Id = Convert.ToInt32(row["Id"]),
+                Nazwa = Convert.ToString(row["Nazwa"]),
+                Opis = Convert.ToString(row["Opis"])
+            }).ToList();
+        }
+        private List<BenefitModel> ConvertToBenefitModels(DataSet dataSet)
+        {
+            DataTable benefitsTable = dataSet.Tables[0];
+            List<BenefitModel> benefits = new List<BenefitModel>();
+
+            foreach (DataRow row in benefitsTable.Rows)
+            {
+                BenefitModel benefit = new BenefitModel
                 {
                     Id = Convert.ToInt32(row["Id"]),
                     Nazwa = Convert.ToString(row["Nazwa"]),
                     Opis = Convert.ToString(row["Opis"])
+                    // Dodaj inne właściwości, jeśli są
                 };
 
-                departments.Add(department);
+                benefits.Add(benefit);
             }
 
-            return departments;
+            return benefits;
         }
-        private void dataGridViewPositions_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewDepartments_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0 )
             {
-                DataGridViewRow row = dataGridViewDepartments.Rows[e.RowIndex];
-                selectedPositionId = Convert.ToInt32(row.Cells["Id"].Value);
-                txtNazwa.Text = row.Cells["Nazwa"].Value.ToString();
+                DataGridViewRow row = dataGridViewStanowiska.Rows[e.RowIndex];
+                int stanowiskoId = Convert.ToInt32(row.Cells["Id"].Value);
+
+                // Pobierz DataSet z benefity dla danego stanowiska
+                DataSet dataSetBenefits = _stanowiskoService.GetBenefitsForStanowisko(stanowiskoId);
+
+                // Konwertuj DataSet na listę BenefitModel
+                List<BenefitModel> benefits = ConvertToBenefitModels(dataSetBenefits);
+                txtNazwa.Text = row.Cells["Nazwa"].Value.ToString(); ;
                 txtOpis.Text = row.Cells["Opis"].Value.ToString();
+                nupStawka.Value = Convert.ToDecimal(row.Cells["StawkaWynagrodzenia"].Value);
+                // Zaktualizuj źródło danych dla cbxBenefits tylko jeśli lista beneficjentów nie jest pusta
+                if (benefits.Any())
+                {
+
+                    cbxBenefits.DataSource = benefits;
+                    cbxBenefits.DisplayMember = "Nazwa";
+                    cbxBenefits.ValueMember = "Id";
+
+
+                    // Zaznacz odpowiednie benefity w cbxBenefits
+                    foreach (DataRow benefitRow in dataSetBenefits.Tables["Table"].Rows)
+                    {
+                        bool isSelected = Convert.ToBoolean(benefitRow["czyWybrana"]);
+
+                        if (isSelected)
+                        {
+                            cbxBenefits.SetItemChecked(cbxBenefits.FindStringExact(benefitRow["Nazwa"].ToString()), true);
+                            continue;
+                        }
+                        cbxBenefits.SetItemChecked(cbxBenefits.FindStringExact(benefitRow["Nazwa"].ToString()), false);
+                    }
+                }
+                else
+                {
+                    cbxBenefits.DataSource = null;
+                }
+
+                int selectedDepartmentId = Convert.ToInt32(row.Cells["DzialId"].Value);
+                for (int i = 0; i < cbxDepartments.Items.Count; i++)
+                {
+                    DzialModel item = (DzialModel)cbxDepartments.Items[i];
+                    if (item.Id == selectedDepartmentId)
+                    {
+                        cbxDepartments.SetItemChecked(i, true);
+                    }
+                    else
+                    {
+                        cbxDepartments.SetItemChecked(i, false);
+                    }
+                }
             }
         }
-        private void Stanowisko_Load(object sender, EventArgs e)
+
+
+        private void deleteButton_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void checkedListBoxDepartments_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnDodaj_Click(object sender, EventArgs e)
-        {
-            string nazwa = txtNazwa.Text;
-            string opis = txtOpis.Text;
-            decimal stawkaWynagrodzenia = nupStawka.Value;
-            int dzialId = (int)cbxDepartments.SelectedValue; // Pobranie wartości zaznaczonego działu
-
-            // Utworzenie obiektu StanowiskoModel
-            StanowiskoModel stanowisko = new StanowiskoModel
+            if (dataGridViewStanowiska.CurrentRow == null)
             {
-                Nazwa = nazwa,
-                Opis = opis,
-                StawkaWynagrodzenia = stawkaWynagrodzenia,
-                DzialId = dzialId
-            };
+                MessageBox.Show("Wybierz stanowisko do usunięcia.");
+                return;
+            }
+            int rowIndex = dataGridViewStanowiska.CurrentRow.Index;
+            int stanowiskoId = Convert.ToInt32(dataGridViewStanowiska.Rows[rowIndex].Cells["Id"].Value);
 
-            // Dodanie stanowiska
-            bool success = _stanowiskoService.AddStanowisko(stanowisko);
+            bool success = _stanowiskoService.DeleteStanowisko(stanowiskoId);
 
             if (success)
             {
-                MessageBox.Show("Stanowisko dodane pomyślnie.");
+                MessageBox.Show("Stanowisko usunięte pomyślnie.");
             }
             else
             {
-                MessageBox.Show("Błąd podczas dodawania stanowiska.");
+                MessageBox.Show("Błąd usuwania stanowiska. Stanowisko może mieć przypisanych pracowników.");
             }
             LoadStanowiska();
         }
 
-        private void btnEdytuj_Click(object sender, EventArgs e)
+        private void bindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            if (dataGridViewDepartments.SelectedRows.Count > 0)
+            if (dataGridViewStanowiska.CurrentRow == null)
             {
-                int stanowiskoId = Convert.ToInt32(dataGridViewDepartments.SelectedRows[0].Cells["Id"].Value);
+                MessageBox.Show("Wybierz stanowisko do edycji.");
+                return;
+            }
+
+            int rowIndex = dataGridViewStanowiska.CurrentRow.Index;
+
+
+                int stanowiskoId = Convert.ToInt32(dataGridViewStanowiska.Rows[rowIndex].Cells["Id"].Value);
                 string nazwa = txtNazwa.Text;
                 string opis = txtOpis.Text;
                 decimal stawkaWynagrodzenia = Convert.ToDecimal(nupStawka.Value);
-                int selectedDzialId = cbxDepartments.CheckedItems.Cast<Models.DzialModel>().Select(d => d.Id).ToList()[0];
+                int selectedDzialId = (int)cbxDepartments.SelectedValue;
 
-                Models.StanowiskoModel stanowisko = new Models.StanowiskoModel
+                List<BenefitModel> selectedBenefits = new List<BenefitModel>();
+                foreach (int index in cbxBenefits.CheckedIndices)
+                {
+                    selectedBenefits.Add((BenefitModel)cbxBenefits.Items[index]);
+                }
+
+                StanowiskoModel stanowisko = new StanowiskoModel
                 {
                     Id = stanowiskoId,
                     Nazwa = nazwa,
                     Opis = opis,
                     StawkaWynagrodzenia = stawkaWynagrodzenia,
-                    DzialId = selectedDzialId
+                    DzialId = selectedDzialId,
+                    Benefits = selectedBenefits
                 };
 
                 bool success = _stanowiskoService.UpdateStanowisko(stanowisko);
@@ -133,72 +205,78 @@ namespace NarzedzieHR.Forms.Stanowisko
                 if (success)
                 {
                     MessageBox.Show("Stanowisko zaktualizowane pomyślnie.");
-                    LoadDepartments();
+                    LoadStanowiska();
                 }
                 else
                 {
                     MessageBox.Show("Błąd aktualizacji stanowiska.");
                 }
+
+        }
+
+
+
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNazwa.Text) || string.IsNullOrWhiteSpace(txtOpis.Text))
+            {
+                MessageBox.Show("Nazwa i opis stanowiska są wymagane.");
+                return;
+            }
+
+            decimal stawkaWynagrodzenia = nupStawka.Value;
+            if (stawkaWynagrodzenia <= 0)
+            {
+                MessageBox.Show("Stawka wynagrodzenia musi być większa od zera.");
+                return;
+            }
+
+            if (cbxDepartments.SelectedIndex == -1)
+            {
+                MessageBox.Show("Wybierz dział dla stanowiska.");
+                return;
+            }
+
+            int dzialId = (int)cbxDepartments.SelectedValue;
+
+            StanowiskoModel stanowisko = new StanowiskoModel
+            {
+                Nazwa = txtNazwa.Text,
+                Opis = txtOpis.Text,
+                StawkaWynagrodzenia = stawkaWynagrodzenia,
+                DzialId = dzialId
+            };
+
+            bool success = _stanowiskoService.AddStanowisko(stanowisko);
+
+            if (success)
+            {
+                MessageBox.Show("Stanowisko dodane pomyślnie.");
+                LoadStanowiska();
             }
             else
             {
-                MessageBox.Show("Wybierz stanowisko do edycji.");
+                MessageBox.Show("Błąd podczas dodawania stanowiska.");
             }
-            LoadStanowiska();
         }
-
-        private void btnUsun_Click(object sender, EventArgs e)
+        private void checkedListBoxDepartments_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (dataGridViewDepartments.SelectedRows.Count > 0)
-            {
-                int stanowiskoId = Convert.ToInt32(dataGridViewDepartments.SelectedRows[0].Cells["Id"].Value);
 
-                bool success = _stanowiskoService.DeleteStanowisko(stanowiskoId);
-
-                if (success)
-                {
-                    MessageBox.Show("Stanowisko usunięte pomyślnie.");
-                    LoadDepartments();
-                }
-                else
-                {
-                    MessageBox.Show("Błąd usuwania stanowiska. Stanowisko może mieć przypisanych pracowników.");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Wybierz stanowisko do usunięcia.");
-            }
-            LoadStanowiska();
         }
-
-        private void dataGridViewDepartments_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void Stanowisko_Load(object sender, EventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dataGridViewDepartments.Rows[e.RowIndex];
-                txtNazwa.Text = row.Cells["Nazwa"].Value.ToString();
-                txtOpis.Text = row.Cells["Opis"].Value.ToString();
-                nupStawka.Value = Convert.ToDecimal(row.Cells["StawkaWynagrodzenia"].Value);
 
-                for (int i = 0; i < cbxDepartments.Items.Count; i++)
-                {
-                    cbxDepartments.SetItemChecked(i, false);
-                }
-
-                int selectedDepartmentId = Convert.ToInt32(row.Cells["DzialId"].Value);
-
-                foreach (DzialModel item in cbxDepartments.Items)
-                {
-                    if (item.Id.ToString() == selectedDepartmentId.ToString())
-                    {
-                        int index = cbxDepartments.Items.IndexOf(item);
-                        cbxDepartments.SetItemChecked(index, true);
-                        break;
-                    }
-                }
-            }
         }
+
+        private void bindingNavigatorStanowisko_RefreshItems(object sender, EventArgs e)
+        {
+
+        }
+        private void dataGridViewStanowiska_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
 
     }
 }

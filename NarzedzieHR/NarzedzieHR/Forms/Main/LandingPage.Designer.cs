@@ -30,6 +30,7 @@
         {
             this.btnDzial = new System.Windows.Forms.Button();
             this.btnStanowisko = new System.Windows.Forms.Button();
+            this.btnPracownicy = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnDzial
@@ -52,11 +53,22 @@
             this.btnStanowisko.UseVisualStyleBackColor = true;
             this.btnStanowisko.Click += new System.EventHandler(this.btnStanowisko_Click);
             // 
+            // btnPracownicy
+            // 
+            this.btnPracownicy.Location = new System.Drawing.Point(12, 112);
+            this.btnPracownicy.Name = "btnPracownicy";
+            this.btnPracownicy.Size = new System.Drawing.Size(113, 47);
+            this.btnPracownicy.TabIndex = 2;
+            this.btnPracownicy.Text = "Pracownicy";
+            this.btnPracownicy.UseVisualStyleBackColor = true;
+            this.btnPracownicy.Click += new System.EventHandler(this.btnPracownicy_Click);
+            // 
             // LandingPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnPracownicy);
             this.Controls.Add(this.btnStanowisko);
             this.Controls.Add(this.btnDzial);
             this.Name = "LandingPage";
@@ -70,5 +82,6 @@
 
         private System.Windows.Forms.Button btnDzial;
         private System.Windows.Forms.Button btnStanowisko;
+        private System.Windows.Forms.Button btnPracownicy;
     }
 }

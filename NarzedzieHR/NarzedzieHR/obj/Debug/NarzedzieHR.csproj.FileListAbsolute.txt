@@ -32,3 +32,5 @@ C:\Users\kacpe\OneDrive\Pulpit\AdoDetNet\NarzedzieHR\NarzedzieHR\NarzedzieHR\obj
 C:\Users\kacpe\OneDrive\Pulpit\AdoDetNet\NarzedzieHR\NarzedzieHR\NarzedzieHR\obj\Debug\Narzedzi.85D78923.Up2Date
 C:\Users\kacpe\OneDrive\Pulpit\AdoDetNet\NarzedzieHR\NarzedzieHR\NarzedzieHR\obj\Debug\NarzedzieHR.exe
 C:\Users\kacpe\OneDrive\Pulpit\AdoDetNet\NarzedzieHR\NarzedzieHR\NarzedzieHR\obj\Debug\NarzedzieHR.pdb
+C:\Users\kacpe\OneDrive\Pulpit\AdoDetNet\NarzedzieHR\NarzedzieHR\NarzedzieHR\obj\Debug\NarzedzieHR.Forms.Pracownik.PracownikForms.resources
+C:\Users\kacpe\OneDrive\Pulpit\AdoDetNet\NarzedzieHR\NarzedzieHR\NarzedzieHR\obj\Debug\NarzedzieHR.Forms.Pracownik.CredentialsForm.resources

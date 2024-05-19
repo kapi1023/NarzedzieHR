@@ -24,5 +24,7 @@ namespace NarzedzieHR.Models
 
         [Column(TypeName = "decimal(18, 2)")]
         public decimal StawkaWynagrodzenia { get; set; }
+        public DzialModel Dzial { get; set; }
+        public List<BenefitModel> Benefits { get; set; }
     }
 }

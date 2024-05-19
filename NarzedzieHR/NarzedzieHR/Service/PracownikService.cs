@@ -8,16 +8,11 @@ namespace NarzedzieHR.Service
 {
     public class PracownikService
     {
-        private readonly string _connectionString;
+        private readonly string _connectionString = "data source=sql.bsite.net\\MSSQL2016;initial catalog=kapi1023_;user id=kapi1023_;password=Haslo123#$";
 
-        public PracownikService(string connectionString)
+        public DataSet GetAllPracownicy()
         {
-            _connectionString = connectionString;
-        }
-
-        public DataTable GetAllPracownicy()
-        {
-            DataTable dataTable = new DataTable();
+            DataSet dataSet = new DataSet();
 
             try
             {
@@ -25,7 +20,7 @@ namespace NarzedzieHR.Service
                 {
                     SqlDataAdapter dataAdapter = new SqlDataAdapter();
                     dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM Pracownik", connection);
-                    dataAdapter.Fill(dataTable);
+                    dataAdapter.Fill(dataSet);
                 }
             }
             catch (Exception ex)
@@ -33,7 +28,7 @@ namespace NarzedzieHR.Service
                 Console.WriteLine(ex.Message);
             }
 
-            return dataTable;
+            return dataSet;
         }
 
         public bool AddPracownik(PracownikModel pracownik)

@@ -22,10 +22,5 @@ namespace NarzedzieHR.Models
 
         [Column(TypeName = "decimal(18, 2)")]
         public decimal Wartosc { get; set; }
-
-        public int StanowiskoId { get; set; }
-
-        [ForeignKey("StanowiskoId")]
-        public StanowiskoModel Stanowisko { get; set; }
     }
 }

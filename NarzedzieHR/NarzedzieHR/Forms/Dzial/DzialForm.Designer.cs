@@ -190,7 +190,7 @@
             this.Controls.Add(this.bindingNavigatorDzialy);
             this.Controls.Add(this.dataGridViewDepartments);
             this.Name = "DzialForm";
-            this.Text = "Dzial2Form";
+            this.Text = "DzialForm";
             this.Load += new System.EventHandler(this.Dzial2Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDepartments)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDzialy)).EndInit();
