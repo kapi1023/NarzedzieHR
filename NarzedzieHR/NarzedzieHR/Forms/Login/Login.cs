@@ -35,15 +35,14 @@ namespace NarzedzieHR.Forms.Login
 
             if (isAuthenticated)
             {
-                //MessageBox.Show("Login successful!");
-                // Przekierowanie do innego formularza po pomyślnym zalogowaniu
+          
                 Main.LandingPage landingPageForm = new Main.LandingPage();
                 landingPageForm.Show();
-                this.Hide(); // Ukrycie formularza logowania
+                this.Hide(); 
             }
             else
             {
-                MessageBox.Show("Login failed. Invalid username or password.");
+                MessageBox.Show("Logowanie się nie powiodło. Niepoprany login lub hasło.");
             }
         }
 
@@ -54,15 +53,14 @@ namespace NarzedzieHR.Forms.Login
 
             if (isAuthenticated)
             {
-                // MessageBox.Show("Login successful!");
-                // Przekierowanie do innego formularza po pomyślnym zalogowaniu
+
                 Main.LandingPage landingPageForm = new Main.LandingPage();
                 landingPageForm.Show();
-                this.Hide(); // Ukrycie formularza logowania
+                this.Hide(); 
             }
             else
             {
-                MessageBox.Show("Login failed. Invalid username or password.");
+                MessageBox.Show("Logowanie się nie powiodło. Niepoprany login lub hasło.");
             }
         }
     }

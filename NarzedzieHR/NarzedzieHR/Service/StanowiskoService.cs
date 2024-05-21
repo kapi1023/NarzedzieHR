@@ -117,7 +117,7 @@ namespace NarzedzieHR.Service
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
-                    return false; // Return false if an exception occurred
+                    return false; 
                 }
             }
         }

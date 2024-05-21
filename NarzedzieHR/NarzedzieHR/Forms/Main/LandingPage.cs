@@ -42,5 +42,10 @@ namespace NarzedzieHR.Forms.Main
             PracownikForms pracownik = new PracownikForms();
             pracownik.Show();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -93,7 +93,7 @@ namespace NarzedzieHR.Service
                     int stanowiskoCount = (int)dataTable.Rows[0][0];
 
                     if (stanowiskoCount > 0)
-                        return false; // Cannot delete Dzial with associated Stanowisko
+                        return false; 
 
                     dataAdapter.DeleteCommand = new SqlCommand("DELETE FROM Dzial WHERE Id = @Id", connection);
                     dataAdapter.DeleteCommand.Parameters.AddWithValue("@Id", dzialId);
