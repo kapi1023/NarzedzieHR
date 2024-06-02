@@ -1,5 +1,6 @@
 ﻿using NarzedzieHR.Forms.Dzial;
 using NarzedzieHR.Forms.Pracownik;
+using NarzedzieHR.Forms.Raport;
 using NarzedzieHR.Forms.Stanowisko;
 using System;
 using System.Collections.Generic;
@@ -41,6 +42,18 @@ namespace NarzedzieHR.Forms.Main
         {
             PracownikForms pracownik = new PracownikForms();
             pracownik.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRaporty_Click(object sender, EventArgs e)
+        {
+            RaportForm raport = new RaportForm();
+            raport.Show();
+
         }
     }
 }

@@ -84,21 +84,19 @@ namespace NarzedzieHR.Service
             {
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
-                    SqlDataAdapter dataAdapter = new SqlDataAdapter();
-                    dataAdapter.SelectCommand = new SqlCommand("SELECT COUNT(*) FROM Stanowisko WHERE DzialId = @DzialId", connection);
-                    dataAdapter.SelectCommand.Parameters.AddWithValue("@DzialId", dzialId);
-                    DataTable dataTable = new DataTable();
-                    dataAdapter.Fill(dataTable);
-
-                    int stanowiskoCount = (int)dataTable.Rows[0][0];
+                    SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM Stanowisko WHERE DzialId = @DzialId", connection);
+                    command.Parameters.AddWithValue("@DzialId", dzialId);
+                    connection.Open();
+                    int stanowiskoCount = (int)command.ExecuteScalar();
 
                     if (stanowiskoCount > 0)
-                        return false; // Cannot delete Dzial with associated Stanowisko
+                    {
+                        return false;
+                    }
 
-                    dataAdapter.DeleteCommand = new SqlCommand("DELETE FROM Dzial WHERE Id = @Id", connection);
-                    dataAdapter.DeleteCommand.Parameters.AddWithValue("@Id", dzialId);
-                    connection.Open();
-                    int rowsAffected = dataAdapter.DeleteCommand.ExecuteNonQuery();
+                    command = new SqlCommand("DELETE FROM Dzial WHERE Id = @Id", connection);
+                    command.Parameters.AddWithValue("@Id", dzialId);
+                    int rowsAffected = command.ExecuteNonQuery();
 
                     return rowsAffected > 0;
                 }
@@ -109,6 +107,5 @@ namespace NarzedzieHR.Service
                 return false;
             }
         }
-
     }
 }

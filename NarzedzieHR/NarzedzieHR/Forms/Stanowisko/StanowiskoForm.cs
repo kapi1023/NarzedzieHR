@@ -42,6 +42,7 @@ namespace NarzedzieHR.Forms.Stanowisko
             bindingSourceStanowisko.DataSource = dataSet.Tables["Table"];
             dataGridViewStanowiska.DataSource = bindingSourceStanowisko;
         }
+
         private void LoadBenefits() // Dodane
         {
             DataSet dataSet = _benefitService.GetAllBenefits();
@@ -65,6 +66,7 @@ namespace NarzedzieHR.Forms.Stanowisko
                 Opis = Convert.ToString(row["Opis"])
             }).ToList();
         }
+
         private List<BenefitModel> ConvertToBenefitModels(DataSet dataSet)
         {
             DataTable benefitsTable = dataSet.Tables[0];
@@ -77,7 +79,6 @@ namespace NarzedzieHR.Forms.Stanowisko
                     Id = Convert.ToInt32(row["Id"]),
                     Nazwa = Convert.ToString(row["Nazwa"]),
                     Opis = Convert.ToString(row["Opis"])
-                    // Dodaj inne właściwości, jeśli są
                 };
 
                 benefits.Add(benefit);
@@ -85,9 +86,10 @@ namespace NarzedzieHR.Forms.Stanowisko
 
             return benefits;
         }
+
         private void dataGridViewDepartments_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 )
+            if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridViewStanowiska.Rows[e.RowIndex];
                 int stanowiskoId = Convert.ToInt32(row.Cells["Id"].Value);
@@ -97,17 +99,16 @@ namespace NarzedzieHR.Forms.Stanowisko
 
                 // Konwertuj DataSet na listę BenefitModel
                 List<BenefitModel> benefits = ConvertToBenefitModels(dataSetBenefits);
-                txtNazwa.Text = row.Cells["Nazwa"].Value.ToString(); ;
+                txtNazwa.Text = row.Cells["Nazwa"].Value.ToString();
                 txtOpis.Text = row.Cells["Opis"].Value.ToString();
                 nupStawka.Value = Convert.ToDecimal(row.Cells["StawkaWynagrodzenia"].Value);
+
                 // Zaktualizuj źródło danych dla cbxBenefits tylko jeśli lista beneficjentów nie jest pusta
                 if (benefits.Any())
                 {
-
                     cbxBenefits.DataSource = benefits;
                     cbxBenefits.DisplayMember = "Nazwa";
                     cbxBenefits.ValueMember = "Id";
-
 
                     // Zaznacz odpowiednie benefity w cbxBenefits
                     foreach (DataRow benefitRow in dataSetBenefits.Tables["Table"].Rows)
@@ -143,7 +144,6 @@ namespace NarzedzieHR.Forms.Stanowisko
             }
         }
 
-
         private void deleteButton_Click(object sender, EventArgs e)
         {
             if (dataGridViewStanowiska.CurrentRow == null)
@@ -176,45 +176,50 @@ namespace NarzedzieHR.Forms.Stanowisko
             }
 
             int rowIndex = dataGridViewStanowiska.CurrentRow.Index;
+            int stanowiskoId = Convert.ToInt32(dataGridViewStanowiska.Rows[rowIndex].Cells["Id"].Value);
+            string nazwa = txtNazwa.Text;
+            string opis = txtOpis.Text;
+            decimal stawkaWynagrodzenia = Convert.ToDecimal(nupStawka.Value);
+            int selectedDzialId = (int)cbxDepartments.SelectedValue;
 
-
-                int stanowiskoId = Convert.ToInt32(dataGridViewStanowiska.Rows[rowIndex].Cells["Id"].Value);
-                string nazwa = txtNazwa.Text;
-                string opis = txtOpis.Text;
-                decimal stawkaWynagrodzenia = Convert.ToDecimal(nupStawka.Value);
-                int selectedDzialId = (int)cbxDepartments.SelectedValue;
-
-                List<BenefitModel> selectedBenefits = new List<BenefitModel>();
-                foreach (int index in cbxBenefits.CheckedIndices)
+            // Sprawdzenie, czy stanowisko o takiej samej nazwie już istnieje
+            foreach (DataGridViewRow row in dataGridViewStanowiska.Rows)
+            {
+                if (row.Index != rowIndex && row.Cells["Nazwa"].Value != null && row.Cells["Nazwa"].Value.ToString().Equals(nazwa, StringComparison.OrdinalIgnoreCase))
                 {
-                    selectedBenefits.Add((BenefitModel)cbxBenefits.Items[index]);
+                    MessageBox.Show("Stanowisko o takiej nazwie już istnieje.");
+                    return;
                 }
+            }
 
-                StanowiskoModel stanowisko = new StanowiskoModel
-                {
-                    Id = stanowiskoId,
-                    Nazwa = nazwa,
-                    Opis = opis,
-                    StawkaWynagrodzenia = stawkaWynagrodzenia,
-                    DzialId = selectedDzialId,
-                    Benefits = selectedBenefits
-                };
+            List<BenefitModel> selectedBenefits = new List<BenefitModel>();
+            foreach (int index in cbxBenefits.CheckedIndices)
+            {
+                selectedBenefits.Add((BenefitModel)cbxBenefits.Items[index]);
+            }
 
-                bool success = _stanowiskoService.UpdateStanowisko(stanowisko);
+            StanowiskoModel stanowisko = new StanowiskoModel
+            {
+                Id = stanowiskoId,
+                Nazwa = nazwa,
+                Opis = opis,
+                StawkaWynagrodzenia = stawkaWynagrodzenia,
+                DzialId = selectedDzialId,
+                Benefits = selectedBenefits
+            };
 
-                if (success)
-                {
-                    MessageBox.Show("Stanowisko zaktualizowane pomyślnie.");
-                    LoadStanowiska();
-                }
-                else
-                {
-                    MessageBox.Show("Błąd aktualizacji stanowiska.");
-                }
+            bool success = _stanowiskoService.UpdateStanowisko(stanowisko);
 
+            if (success)
+            {
+                MessageBox.Show("Stanowisko zaktualizowane pomyślnie.");
+                LoadStanowiska();
+            }
+            else
+            {
+                MessageBox.Show("Błąd aktualizacji stanowiska.");
+            }
         }
-
-
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
@@ -235,6 +240,16 @@ namespace NarzedzieHR.Forms.Stanowisko
             {
                 MessageBox.Show("Wybierz dział dla stanowiska.");
                 return;
+            }
+
+            // Sprawdzenie, czy stanowisko o takiej samej nazwie już istnieje
+            foreach (DataGridViewRow row in dataGridViewStanowiska.Rows)
+            {
+                if (row.Cells["Nazwa"].Value != null && row.Cells["Nazwa"].Value.ToString().Equals(txtNazwa.Text, StringComparison.OrdinalIgnoreCase))
+                {
+                    MessageBox.Show("Stanowisko o takiej nazwie już istnieje.");
+                    return;
+                }
             }
 
             int dzialId = (int)cbxDepartments.SelectedValue;
@@ -259,24 +274,21 @@ namespace NarzedzieHR.Forms.Stanowisko
                 MessageBox.Show("Błąd podczas dodawania stanowiska.");
             }
         }
+
         private void checkedListBoxDepartments_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
+
         private void Stanowisko_Load(object sender, EventArgs e)
         {
-
         }
 
         private void bindingNavigatorStanowisko_RefreshItems(object sender, EventArgs e)
         {
-
         }
+
         private void dataGridViewStanowiska_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
-
-
     }
 }

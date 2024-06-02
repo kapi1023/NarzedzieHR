@@ -206,6 +206,12 @@
     <Compile Include="Forms\Pracownik\CredentialsForm.Designer.cs">
       <DependentUpon>CredentialsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Raport\RaportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Raport\RaportForm.Designer.cs">
+      <DependentUpon>RaportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Stanowisko\StanowiskoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,6 +249,9 @@
     <EmbeddedResource Include="Forms\Pracownik\CredentialsForm.resx">
       <DependentUpon>CredentialsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Raport\RaportForm.resx">
+      <DependentUpon>RaportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Stanowisko\StanowiskoForm.resx">
       <DependentUpon>StanowiskoForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -254,6 +263,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -269,8 +279,27 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Forms\Raport\" />
+    <None Include="Resources\free-user-login-icon-305-thumb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4185473.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5818407.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6883538.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-employees-1407193-1190603.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\298-2986300_transparent-social-people-icon-png-png-download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-user-login-icon-305-thumb1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
