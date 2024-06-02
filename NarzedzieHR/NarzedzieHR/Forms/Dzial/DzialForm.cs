@@ -1,155 +1,161 @@
 ﻿using NarzedzieHR.Models;
 using NarzedzieHR.Service;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NarzedzieHR.Forms.Dzial
 {
     public partial class DzialForm : Form
     {
+        private readonly DzialService _dzialService;
+
         public DzialForm()
         {
             InitializeComponent();
             _dzialService = new DzialService();
             LoadDepartments();
-            bindingNavigatorDzialy.BindingSource = bindingSourceDzialy;
+            ConfigureBindingNavigator();
+            dataGridViewDepartments.AllowUserToAddRows = false; // Ukrycie pustego wiersza
         }
-        private DataGridViewRow _editedRow;
-
-        private readonly DzialService _dzialService;
-
 
         private void LoadDepartments()
         {
-            DataSet departmentsTable = _dzialService.GetAllDzialy();
-            bindingSourceDzialy.DataSource = departmentsTable.Tables["Dzial"];
+            DataSet dataSet = _dzialService.GetAllDzialy();
+            bindingSourceDzialy.DataSource = dataSet.Tables["Dzial"];
             dataGridViewDepartments.DataSource = bindingSourceDzialy;
         }
 
-        private void Dzial2Form_Load(object sender, EventArgs e)
+        private void ConfigureBindingNavigator()
         {
-
+            bindingNavigatorDzialy.BindingSource = bindingSourceDzialy;
         }
 
         private void dataGridViewDepartments_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridViewDepartments.Rows[e.RowIndex];
+                txtNazwa.Text = row.Cells["Nazwa"].Value.ToString();
+                txtOpis.Text = row.Cells["Opis"].Value.ToString();
+            }
         }
-
 
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
         {
             if (dataGridViewDepartments.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Select a department to delete.");
-                return;
-            }
-            if (dataGridViewDepartments.SelectedRows[0].Index == dataGridViewDepartments.Rows.Count - 1)
-            {
-                MessageBox.Show("Cannot delete the last row.");
+                MessageBox.Show("Wybierz dział do usunięcia.");
                 return;
             }
 
-            DataRowView currentRow = (DataRowView)bindingSourceDzialy.Current;
-            int departmentId = Convert.ToInt32(currentRow["Id"]);
+            DataGridViewRow selectedRow = dataGridViewDepartments.SelectedRows[0];
+            int departmentId = Convert.ToInt32(selectedRow.Cells["Id"].Value);
 
             bool success = _dzialService.DeleteDzial(departmentId);
 
             if (success)
             {
-                MessageBox.Show("Department deleted successfully.");
-                LoadDepartments();
+                MessageBox.Show("Dział został pomyślnie usunięty.");
+                LoadDepartments(); // Ponowne załadowanie danych po usunięciu
             }
             else
             {
-                MessageBox.Show("Error deleting department. Department may have associated employees.");
+                MessageBox.Show("Błąd podczas usuwania działu. Dział może mieć powiązanych pracowników.");
             }
         }
 
         private void bindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            DataGridViewSelectedRowCollection selectedRows = dataGridViewDepartments.SelectedRows;
-
-            if (selectedRows.Count == 0)
+            if (dataGridViewDepartments.CurrentRow == null)
             {
-                MessageBox.Show("No department is being edited.");
+                MessageBox.Show("Wybierz dział do edycji.");
                 return;
             }
 
-            DataGridViewRow editedRow = selectedRows[0];
-
-            string nazwa = editedRow.Cells["Nazwa"].Value.ToString();
-            string opis = editedRow.Cells["Opis"].Value.ToString();
+            int rowIndex = dataGridViewDepartments.CurrentRow.Index;
+            int departmentId = Convert.ToInt32(dataGridViewDepartments.Rows[rowIndex].Cells["Id"].Value);
+            string nazwa = txtNazwa.Text;
+            string opis = txtOpis.Text;
 
             if (string.IsNullOrEmpty(nazwa) || string.IsNullOrEmpty(opis))
             {
-                MessageBox.Show("Department name and description are required.");
+                MessageBox.Show("Nazwa i opis działu są wymagane.");
                 return;
             }
 
-            DataRowView currentRow = (DataRowView)editedRow.DataBoundItem;
-            int departmentId = Convert.ToInt32(currentRow["Id"]);
-            DzialModel dzial = new DzialModel { Id = departmentId, Nazwa = nazwa, Opis = opis };
+            DzialModel dzial = new DzialModel
+            {
+                Id = departmentId,
+                Nazwa = nazwa,
+                Opis = opis
+            };
 
             bool success = _dzialService.UpdateDzial(dzial);
 
             if (success)
             {
-                MessageBox.Show("Department updated successfully.");
-                LoadDepartments();
+                MessageBox.Show("Dział został pomyślnie zaktualizowany.");
+                LoadDepartments(); // Ponowne załadowanie danych po aktualizacji
             }
             else
             {
-                MessageBox.Show("Error updating department.");
+                MessageBox.Show("Błąd podczas aktualizacji działu.");
+            }
+        }
+
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNazwa.Text) || string.IsNullOrWhiteSpace(txtOpis.Text))
+            {
+                MessageBox.Show("Nazwa i opis działu są wymagane.");
+                return;
+            }
+
+            // Sprawdź, czy istnieje już dział o takiej samej nazwie
+            foreach (DataGridViewRow row in dataGridViewDepartments.Rows)
+            {
+                if (row.Cells["Nazwa"].Value != null && row.Cells["Nazwa"].Value.ToString().Equals(txtNazwa.Text, StringComparison.OrdinalIgnoreCase))
+                {
+                    MessageBox.Show("Dział o takiej nazwie już istnieje.");
+                    return;
+                }
+            }
+
+            DzialModel dzial = new DzialModel
+            {
+                Nazwa = txtNazwa.Text,
+                Opis = txtOpis.Text
+            };
+
+            bool success = _dzialService.AddDzial(dzial);
+
+            if (success)
+            {
+                MessageBox.Show("Dział został pomyślnie dodany.");
+                LoadDepartments(); // Ponowne załadowanie danych po dodaniu
+            }
+            else
+            {
+                MessageBox.Show("Błąd podczas dodawania działu.");
             }
         }
 
         private void dataGridViewDepartments_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-        }
-
-        private void dataGridViewDepartments_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex == dataGridViewDepartments.Rows.Count - 2 && e.ColumnIndex == dataGridViewDepartments.Columns.Count - 1)
-            {
-                string nazwa = dataGridViewDepartments.Rows[e.RowIndex].Cells["Nazwa"].Value.ToString();
-                string opis = dataGridViewDepartments.Rows[e.RowIndex].Cells["Opis"].Value.ToString();
-
-                if (string.IsNullOrEmpty(nazwa) || string.IsNullOrEmpty(opis))
-                {
-                    MessageBox.Show("Department name and description are required.");
-                    return;
-                }
-
-                DzialModel dzial = new DzialModel { Nazwa = nazwa, Opis = opis };
-
-                bool success = _dzialService.AddDzial(dzial);
-
-                if (!success)
-                {
-                    MessageBox.Show("Error adding department.");
-                    return;
-                }
-
-                MessageBox.Show("Department added successfully.");
-                LoadDepartments();
-            }
-
         }
 
         private void bindingNavigatorDzialy_RefreshItems(object sender, EventArgs e)
         {
-
         }
 
+        private void Dzial2Form_Load(object sender, EventArgs e)
+        {
+        }
 
-
+        private void dataGridViewDepartments_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            // Usunięto logikę dodawania działu z tej metody
+        }
     }
 }

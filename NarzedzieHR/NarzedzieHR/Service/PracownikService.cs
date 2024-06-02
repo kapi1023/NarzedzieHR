@@ -1,6 +1,5 @@
 ﻿using NarzedzieHR.Models;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -29,6 +28,102 @@ namespace NarzedzieHR.Service
             }
 
             return dataSet;
+        }
+
+        public DataSet GetPracownicyByDzial(int dzialId)
+        {
+            DataSet dataSet = new DataSet();
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(_connectionString))
+                {
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter();
+                    dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM Pracownik WHERE DzialId = @DzialId", connection);
+                    dataAdapter.SelectCommand.Parameters.AddWithValue("@DzialId", dzialId);
+                    dataAdapter.Fill(dataSet);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return dataSet;
+        }
+
+        public DataSet GetPracownicyByStanowisko(int stanowiskoId)
+        {
+            DataSet dataSet = new DataSet();
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(_connectionString))
+                {
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter();
+                    dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM Pracownik WHERE StanowiskoId = @StanowiskoId", connection);
+                    dataAdapter.SelectCommand.Parameters.AddWithValue("@StanowiskoId", stanowiskoId);
+                    dataAdapter.Fill(dataSet);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return dataSet;
+        }
+
+        public decimal GetStawkaByPracownikId(int pracownikId)
+        {
+            decimal stawka = 0;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(_connectionString))
+                {
+                    SqlCommand command = new SqlCommand("SELECT s.StawkaWynagrodzenia FROM Stanowisko s JOIN Pracownik p ON s.Id = p.StanowiskoId WHERE p.Id = @PracownikId", connection);
+                    command.Parameters.AddWithValue("@PracownikId", pracownikId);
+                    connection.Open();
+                    object result = command.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                    {
+                        stawka = Convert.ToDecimal(result);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return stawka;
+        }
+
+        public int GetStanowiskoIdByPracownikId(int pracownikId)
+        {
+            int stanowiskoId = 0;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(_connectionString))
+                {
+                    SqlCommand command = new SqlCommand("SELECT StanowiskoId FROM Pracownik WHERE Id = @PracownikId", connection);
+                    command.Parameters.AddWithValue("@PracownikId", pracownikId);
+                    connection.Open();
+                    object result = command.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                    {
+                        stanowiskoId = Convert.ToInt32(result);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return stanowiskoId;
         }
 
         public bool AddPracownik(PracownikModel pracownik)

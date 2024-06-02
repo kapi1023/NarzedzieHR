@@ -8,7 +8,7 @@ namespace NarzedzieHR.Service
     {
         private readonly string _connectionString = "data source=sql.bsite.net\\MSSQL2016;initial catalog=kapi1023_;user id=kapi1023_;password=Haslo123#$";
 
-        public DataTable GetEmployeeReports(int employeeId)
+        public DataTable GetAllRaporty()
         {
             DataTable dataTable = new DataTable();
 
@@ -17,8 +17,7 @@ namespace NarzedzieHR.Service
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     SqlDataAdapter dataAdapter = new SqlDataAdapter();
-                    dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM Reports WHERE EmployeeId = @EmployeeId", connection);
-                    dataAdapter.SelectCommand.Parameters.AddWithValue("@EmployeeId", employeeId);
+                    dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM Raport", connection);
                     dataAdapter.Fill(dataTable);
                 }
             }
@@ -29,16 +28,20 @@ namespace NarzedzieHR.Service
 
             return dataTable;
         }
-        public bool AddReport(int employeeId, string reportText)
+
+        public bool AddReport(int pracownikId, DateTime dateTime, int przepracowaneGodziny, decimal stawkaWynagrodzenia)
         {
             try
             {
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     SqlDataAdapter dataAdapter = new SqlDataAdapter();
-                    dataAdapter.InsertCommand = new SqlCommand("INSERT INTO Reports (EmployeeId, ReportText) VALUES (@EmployeeId, @ReportText)", connection);
-                    dataAdapter.InsertCommand.Parameters.AddWithValue("@EmployeeId", employeeId);
-                    dataAdapter.InsertCommand.Parameters.AddWithValue("@ReportText", reportText);
+                    dataAdapter.InsertCommand = new SqlCommand("INSERT INTO Raport (PracownikId, DateTime, PrzepracowaneGodziny, StawkaWynagrodzenia, StanowiskoId) VALUES (@PracownikId, @DateTime, @PrzepracowaneGodziny, @StawkaWynagrodzenia, @StanowiskoId)", connection);
+                    dataAdapter.InsertCommand.Parameters.AddWithValue("@PracownikId", pracownikId);
+                    dataAdapter.InsertCommand.Parameters.AddWithValue("@DateTime", dateTime);
+                    dataAdapter.InsertCommand.Parameters.AddWithValue("@PrzepracowaneGodziny", przepracowaneGodziny);
+                    dataAdapter.InsertCommand.Parameters.AddWithValue("@StawkaWynagrodzenia", stawkaWynagrodzenia);
+                    dataAdapter.InsertCommand.Parameters.AddWithValue("@StanowiskoId", GetStanowiskoIdByPracownikId(pracownikId));
                     connection.Open();
                     int rowsAffected = dataAdapter.InsertCommand.ExecuteNonQuery();
 
@@ -52,49 +55,11 @@ namespace NarzedzieHR.Service
             }
         }
 
-        public bool UpdateReport(int reportId, string reportText)
+        private int GetStanowiskoIdByPracownikId(int pracownikId)
         {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(_connectionString))
-                {
-                    SqlDataAdapter dataAdapter = new SqlDataAdapter();
-                    dataAdapter.UpdateCommand = new SqlCommand("UPDATE Reports SET ReportText = @ReportText WHERE Id = @ReportId", connection);
-                    dataAdapter.UpdateCommand.Parameters.AddWithValue("@ReportText", reportText);
-                    dataAdapter.UpdateCommand.Parameters.AddWithValue("@ReportId", reportId);
-                    connection.Open();
-                    int rowsAffected = dataAdapter.UpdateCommand.ExecuteNonQuery();
-
-                    return rowsAffected > 0;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
-        }
-
-        public bool DeleteReport(int reportId)
-        {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(_connectionString))
-                {
-                    SqlDataAdapter dataAdapter = new SqlDataAdapter();
-                    dataAdapter.DeleteCommand = new SqlCommand("DELETE FROM Reports WHERE Id = @ReportId", connection);
-                    dataAdapter.DeleteCommand.Parameters.AddWithValue("@ReportId", reportId);
-                    connection.Open();
-                    int rowsAffected = dataAdapter.DeleteCommand.ExecuteNonQuery();
-
-                    return rowsAffected > 0;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
+            // Implementacja metody zwracającej StanowiskoId na podstawie pracownikId
+            // To powinno być zaimplementowane w PracownikService
+            return new PracownikService().GetStanowiskoIdByPracownikId(pracownikId);
         }
     }
 }

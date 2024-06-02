@@ -45,7 +45,7 @@
             // btnDzial
             // 
             this.btnDzial.Location = new System.Drawing.Point(25, 184);
-            this.btnDzial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDzial.Margin = new System.Windows.Forms.Padding(4);
             this.btnDzial.Name = "btnDzial";
             this.btnDzial.Size = new System.Drawing.Size(151, 54);
             this.btnDzial.TabIndex = 0;
@@ -56,7 +56,7 @@
             // btnStanowisko
             // 
             this.btnStanowisko.Location = new System.Drawing.Point(184, 184);
-            this.btnStanowisko.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStanowisko.Margin = new System.Windows.Forms.Padding(4);
             this.btnStanowisko.Name = "btnStanowisko";
             this.btnStanowisko.Size = new System.Drawing.Size(151, 54);
             this.btnStanowisko.TabIndex = 1;
@@ -67,7 +67,7 @@
             // btnPracownicy
             // 
             this.btnPracownicy.Location = new System.Drawing.Point(343, 182);
-            this.btnPracownicy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPracownicy.Margin = new System.Windows.Forms.Padding(4);
             this.btnPracownicy.Name = "btnPracownicy";
             this.btnPracownicy.Size = new System.Drawing.Size(151, 56);
             this.btnPracownicy.TabIndex = 2;
@@ -84,6 +84,7 @@
             this.btnRaporty.TabIndex = 3;
             this.btnRaporty.Text = "Raporty";
             this.btnRaporty.UseVisualStyleBackColor = true;
+            this.btnRaporty.Click += new System.EventHandler(this.btnRaporty_Click);
             // 
             // pictureBox1
             // 
@@ -139,7 +140,7 @@
             this.Controls.Add(this.btnPracownicy);
             this.Controls.Add(this.btnStanowisko);
             this.Controls.Add(this.btnDzial);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LandingPage";
             this.Text = "LandingPage";
             this.Load += new System.EventHandler(this.LandingPage_Load);

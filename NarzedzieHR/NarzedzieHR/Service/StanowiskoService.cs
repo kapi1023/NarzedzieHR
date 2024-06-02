@@ -1,6 +1,5 @@
 ﻿using NarzedzieHR.Models;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -31,7 +30,28 @@ namespace NarzedzieHR.Service
                 }
             }
 
-        
+            return dataSet;
+        }
+
+        public DataSet GetStanowiskaByDzial(int dzialId)
+        {
+            DataSet dataSet = new DataSet();
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(_connectionString))
+                {
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter();
+                    dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM Stanowisko WHERE DzialId = @DzialId", connection);
+                    dataAdapter.SelectCommand.Parameters.AddWithValue("@DzialId", dzialId);
+                    dataAdapter.Fill(dataSet);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
             return dataSet;
         }
 
@@ -111,18 +131,15 @@ namespace NarzedzieHR.Service
                         return true;
                     }
 
-                        return false; 
-                    
+                    return false;
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
-                    return false; 
+                    return false;
                 }
             }
         }
-
-
 
         public int GetDzialIdForStanowisko(int stanowiskoId)
         {
@@ -174,7 +191,7 @@ namespace NarzedzieHR.Service
                     if (benefitCount > 0)
                     {
                         MessageBox.Show("Nie można usunąć stanowiska, które ma przypisane benefity.");
-                        return false; 
+                        return false;
                     }
 
                     SqlCommand deleteCommand = new SqlCommand("DELETE FROM Stanowisko WHERE Id = @Id", connection);
@@ -196,7 +213,6 @@ namespace NarzedzieHR.Service
                 }
             }
         }
-
 
         public DataSet GetBenefitsForStanowisko(int stanowiskoId)
         {
