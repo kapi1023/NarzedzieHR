@@ -206,6 +206,12 @@
     <Compile Include="Forms\Pracownik\CredentialsForm.Designer.cs">
       <DependentUpon>CredentialsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Raport\RaportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Raport\RaportForm.Designer.cs">
+      <DependentUpon>RaportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Stanowisko\StanowiskoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,6 +249,9 @@
     <EmbeddedResource Include="Forms\Pracownik\CredentialsForm.resx">
       <DependentUpon>CredentialsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Raport\RaportForm.resx">
+      <DependentUpon>RaportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Stanowisko\StanowiskoForm.resx">
       <DependentUpon>StanowiskoForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -270,9 +279,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Forms\Raport\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\free-user-login-icon-305-thumb.png" />
   </ItemGroup>

@@ -44,7 +44,12 @@
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorDzialy = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtOpis = new System.Windows.Forms.TextBox();
+            this.txtNazwa = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDepartments)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDzialy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigatorDzialy)).BeginInit();
@@ -54,6 +59,7 @@
             // 
             // dataGridViewDepartments
             // 
+            this.dataGridViewDepartments.AllowUserToAddRows = false;
             this.dataGridViewDepartments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDepartments.Location = new System.Drawing.Point(30, 34);
             this.dataGridViewDepartments.Margin = new System.Windows.Forms.Padding(4);
@@ -174,7 +180,8 @@
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorDeleteItem,
-            this.bindingNavigatorSaveItem});
+            this.bindingNavigatorSaveItem,
+            this.bindingNavigatorAddNewItem});
             this.bindingNavigatorDzialy.Location = new System.Drawing.Point(0, 0);
             this.bindingNavigatorDzialy.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bindingNavigatorDzialy.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -182,26 +189,76 @@
             this.bindingNavigatorDzialy.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigatorDzialy.Name = "bindingNavigatorDzialy";
             this.bindingNavigatorDzialy.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigatorDzialy.Size = new System.Drawing.Size(1067, 27);
+            this.bindingNavigatorDzialy.Size = new System.Drawing.Size(850, 27);
             this.bindingNavigatorDzialy.TabIndex = 20;
             this.bindingNavigatorDzialy.Text = "bindingNavigator1";
             this.bindingNavigatorDzialy.RefreshItems += new System.EventHandler(this.bindingNavigatorDzialy_RefreshItems);
             // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorAddNewItem.Text = "Dodaj nowy";
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::NarzedzieHR.Properties.Resources.free_employees_1407193_1190603;
-            this.pictureBox1.Location = new System.Drawing.Point(786, 34);
+            this.pictureBox1.Location = new System.Drawing.Point(575, 51);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(156, 139);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 21;
             this.pictureBox1.TabStop = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(470, 251);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 16);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Opis";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(470, 213);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(48, 16);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "Nazwa";
+            // 
+            // txtOpis
+            // 
+            this.txtOpis.Location = new System.Drawing.Point(535, 248);
+            this.txtOpis.Margin = new System.Windows.Forms.Padding(4);
+            this.txtOpis.Name = "txtOpis";
+            this.txtOpis.Size = new System.Drawing.Size(254, 22);
+            this.txtOpis.TabIndex = 23;
+            // 
+            // txtNazwa
+            // 
+            this.txtNazwa.Location = new System.Drawing.Point(535, 213);
+            this.txtNazwa.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNazwa.Name = "txtNazwa";
+            this.txtNazwa.Size = new System.Drawing.Size(254, 22);
+            this.txtNazwa.TabIndex = 22;
+            // 
             // DzialForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(850, 554);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtOpis);
+            this.Controls.Add(this.txtNazwa);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.bindingNavigatorDzialy);
             this.Controls.Add(this.dataGridViewDepartments);
@@ -236,5 +293,10 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorSaveItem;
         private System.Windows.Forms.BindingNavigator bindingNavigatorDzialy;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtOpis;
+        private System.Windows.Forms.TextBox txtNazwa;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
     }
 }
