@@ -94,6 +94,7 @@
             this.dataGridViewRaporty.RowTemplate.Height = 24;
             this.dataGridViewRaporty.Size = new System.Drawing.Size(642, 228);
             this.dataGridViewRaporty.TabIndex = 5;
+            this.dataGridViewRaporty.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRaporty_CellContentClick);
             // 
             // cbxStanowisko
             // 

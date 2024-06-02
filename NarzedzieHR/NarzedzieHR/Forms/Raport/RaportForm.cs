@@ -176,5 +176,10 @@ namespace NarzedzieHR.Forms.Raport
                 LoadRaportyByPracownik(pracownikId);
             }
         }
+
+        private void dataGridViewRaporty_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

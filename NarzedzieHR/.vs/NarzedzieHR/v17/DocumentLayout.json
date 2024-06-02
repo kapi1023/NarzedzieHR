@@ -3,27 +3,35 @@
   "WorkspaceRootPath": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\narzedziehr\\service\\pracownikservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\service\\pracownikservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|c:\\users\\kacpe\\onedrive\\pulpit\\adodetnet\\narzedziehr\\narzedziehr\\narzedziehr\\service\\credentialsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\service\\credentialsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\narzedziehr\\service\\benefitservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\service\\benefitservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\narzedziehr\\service\\raportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\service\\raportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|c:\\users\\kacpe\\onedrive\\pulpit\\adodetnet\\narzedziehr\\narzedziehr\\narzedziehr\\forms\\raport\\raportform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\forms\\raport\\raportform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|c:\\users\\kacpe\\onedrive\\pulpit\\adodetnet\\narzedziehr\\narzedziehr\\narzedziehr\\forms\\raport\\raportform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\narzedziehr\\forms\\raport\\raportform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\forms\\raport\\raportform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|c:\\users\\kacpe\\onedrive\\pulpit\\adodetnet\\narzedziehr\\narzedziehr\\narzedziehr\\service\\raportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\service\\raportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|c:\\users\\kacpe\\onedrive\\pulpit\\adodetnet\\narzedziehr\\narzedziehr\\narzedziehr\\service\\pracownikservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\service\\pracownikservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\narzedziehr\\forms\\main\\landingpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\forms\\main\\landingpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|c:\\users\\kacpe\\onedrive\\pulpit\\adodetnet\\narzedziehr\\narzedziehr\\narzedziehr\\service\\stanowiskoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\narzedziehr\\service\\stanowiskoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\service\\stanowiskoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -35,7 +43,7 @@
       "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\forms\\login\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|c:\\users\\kacpe\\onedrive\\pulpit\\adodetnet\\narzedziehr\\narzedziehr\\narzedziehr\\forms\\pracownik\\credentialsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\narzedziehr\\forms\\pracownik\\credentialsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\forms\\pracownik\\credentialsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -75,10 +83,6 @@
       "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\models\\dzialmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\narzedziehr\\service\\benefitservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\service\\benefitservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\narzedziehr\\models\\benefitmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\models\\benefitmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -114,11 +118,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "CredentialsService.cs",
+              "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\CredentialsService.cs",
+              "RelativeDocumentMoniker": "NarzedzieHR\\Service\\CredentialsService.cs",
+              "ToolTip": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\CredentialsService.cs",
+              "RelativeToolTip": "NarzedzieHR\\Service\\CredentialsService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T21:11:22.313Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "RaportForm.cs [Projekt]",
               "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Raport\\RaportForm.cs",
               "RelativeDocumentMoniker": "NarzedzieHR\\Forms\\Raport\\RaportForm.cs",
@@ -130,58 +147,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "RaportService.cs",
               "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\RaportService.cs",
               "RelativeDocumentMoniker": "NarzedzieHR\\Service\\RaportService.cs",
               "ToolTip": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\RaportService.cs",
               "RelativeToolTip": "NarzedzieHR\\Service\\RaportService.cs",
-              "ViewState": "AQIAACYAAAAAAAAAAAAAADQAAAA2AAAA",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAowDQAAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-02T20:37:06.863Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PracownikService.cs",
-              "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\PracownikService.cs",
-              "RelativeDocumentMoniker": "NarzedzieHR\\Service\\PracownikService.cs",
-              "ToolTip": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\PracownikService.cs",
-              "RelativeToolTip": "NarzedzieHR\\Service\\PracownikService.cs",
-              "ViewState": "AQIAAC8AAAAAAAAAAAAawEEAAAB1AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-02T20:38:24.493Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "RaportForm.cs",
               "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Raport\\RaportForm.cs",
               "RelativeDocumentMoniker": "NarzedzieHR\\Forms\\Raport\\RaportForm.cs",
               "ToolTip": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Raport\\RaportForm.cs",
               "RelativeToolTip": "NarzedzieHR\\Forms\\Raport\\RaportForm.cs",
-              "ViewState": "AQIAABoAAAAAAAAAAAAEwCkAAAA2AAAA",
+              "ViewState": "AQIAAKcAAAAAAAAAAAAvwLUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-02T20:15:26.865Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "LandingPage.cs [Projekt]",
-              "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Main\\LandingPage.cs",
-              "RelativeDocumentMoniker": "NarzedzieHR\\Forms\\Main\\LandingPage.cs",
-              "ToolTip": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Main\\LandingPage.cs [Projekt]",
-              "RelativeToolTip": "NarzedzieHR\\Forms\\Main\\LandingPage.cs [Projekt]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T10:51:34.794Z",
-              "EditorCaption": " [Projekt]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "PracownikForms.cs",
               "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Pracownik\\PracownikForms.cs",
               "RelativeDocumentMoniker": "NarzedzieHR\\Forms\\Pracownik\\PracownikForms.cs",
@@ -189,24 +181,22 @@
               "RelativeToolTip": "NarzedzieHR\\Forms\\Pracownik\\PracownikForms.cs",
               "ViewState": "AQIAANIAAAAAAAAAAAAqwNUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T13:38:28.319Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-19T13:38:28.319Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "Login.cs [Projekt]",
               "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Login\\Login.cs",
               "RelativeDocumentMoniker": "NarzedzieHR\\Forms\\Login\\Login.cs",
               "ToolTip": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Login\\Login.cs [Projekt]",
               "RelativeToolTip": "NarzedzieHR\\Forms\\Login\\Login.cs [Projekt]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T11:06:21.122Z",
-              "EditorCaption": " [Projekt]"
+              "WhenOpened": "2024-05-19T11:06:21.122Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "DzialForm.cs [Projekt]",
               "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Dzial\\DzialForm.cs",
               "RelativeDocumentMoniker": "NarzedzieHR\\Forms\\Dzial\\DzialForm.cs",
@@ -217,7 +207,44 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 2,
+              "Title": "BenefitService.cs",
+              "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\BenefitService.cs",
+              "RelativeDocumentMoniker": "NarzedzieHR\\Service\\BenefitService.cs",
+              "ToolTip": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\BenefitService.cs",
+              "RelativeToolTip": "NarzedzieHR\\Service\\BenefitService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-19T09:08:34.58Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PracownikService.cs",
+              "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\PracownikService.cs",
+              "RelativeDocumentMoniker": "NarzedzieHR\\Service\\PracownikService.cs",
+              "ToolTip": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\PracownikService.cs",
+              "RelativeToolTip": "NarzedzieHR\\Service\\PracownikService.cs",
+              "ViewState": "AQIAANkAAAAAAAAAAAAiwOMAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T20:38:24.493Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LandingPage.cs [Projekt]",
+              "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Main\\LandingPage.cs",
+              "RelativeDocumentMoniker": "NarzedzieHR\\Forms\\Main\\LandingPage.cs",
+              "ToolTip": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Main\\LandingPage.cs [Projekt]",
+              "RelativeToolTip": "NarzedzieHR\\Forms\\Main\\LandingPage.cs [Projekt]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-19T10:51:34.794Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "LandingPage.cs",
               "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Main\\LandingPage.cs",
               "RelativeDocumentMoniker": "NarzedzieHR\\Forms\\Main\\LandingPage.cs",
@@ -225,12 +252,11 @@
               "RelativeToolTip": "NarzedzieHR\\Forms\\Main\\LandingPage.cs",
               "ViewState": "AQIAABYAAAAAAAAAAAAywCkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T13:40:13.33Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-19T13:40:13.33Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "CredentialsForm.cs",
               "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Pracownik\\CredentialsForm.cs",
               "RelativeDocumentMoniker": "NarzedzieHR\\Forms\\Pracownik\\CredentialsForm.cs",
@@ -238,12 +264,11 @@
               "RelativeToolTip": "NarzedzieHR\\Forms\\Pracownik\\CredentialsForm.cs",
               "ViewState": "AQIAADMAAAAAAAAAAADwvzcAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T14:09:44.525Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-19T14:09:44.525Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "StanowiskoService.cs",
               "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\StanowiskoService.cs",
               "RelativeDocumentMoniker": "NarzedzieHR\\Service\\StanowiskoService.cs",
@@ -251,12 +276,11 @@
               "RelativeToolTip": "NarzedzieHR\\Service\\StanowiskoService.cs",
               "ViewState": "AQIAABwAAAAAAAAAAAAlwDQAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-02T20:27:32.067Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-02T20:27:32.067Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "CredentialsForm.cs [Projekt]",
               "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Pracownik\\CredentialsForm.cs",
               "RelativeDocumentMoniker": "NarzedzieHR\\Forms\\Pracownik\\CredentialsForm.cs",
@@ -267,7 +291,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "PasswordHelper.cs",
               "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Helper\\PasswordHelper.cs",
               "RelativeDocumentMoniker": "NarzedzieHR\\Helper\\PasswordHelper.cs",
@@ -279,19 +303,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "PracownikForms.cs [Projekt]",
               "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Pracownik\\PracownikForms.cs",
               "RelativeDocumentMoniker": "NarzedzieHR\\Forms\\Pracownik\\PracownikForms.cs",
               "ToolTip": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Pracownik\\PracownikForms.cs [Projekt]",
               "RelativeToolTip": "NarzedzieHR\\Forms\\Pracownik\\PracownikForms.cs [Projekt]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T10:52:17.76Z",
-              "EditorCaption": " [Projekt]"
+              "WhenOpened": "2024-05-19T10:52:17.76Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "Login.cs",
               "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Login\\Login.cs",
               "RelativeDocumentMoniker": "NarzedzieHR\\Forms\\Login\\Login.cs",
@@ -299,12 +322,11 @@
               "RelativeToolTip": "NarzedzieHR\\Forms\\Login\\Login.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T14:17:38.482Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-19T14:17:38.482Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "CredentialsForm.Designer.cs",
               "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Pracownik\\CredentialsForm.Designer.cs",
               "RelativeDocumentMoniker": "NarzedzieHR\\Forms\\Pracownik\\CredentialsForm.Designer.cs",
@@ -316,7 +338,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "CredentialModel.cs",
               "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Models\\CredentialModel.cs",
               "RelativeDocumentMoniker": "NarzedzieHR\\Models\\CredentialModel.cs",
@@ -328,7 +350,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "DzialModel.cs",
               "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Models\\DzialModel.cs",
               "RelativeDocumentMoniker": "NarzedzieHR\\Models\\DzialModel.cs",
@@ -340,7 +362,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "BenefitModel.cs",
               "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Models\\BenefitModel.cs",
               "RelativeDocumentMoniker": "NarzedzieHR\\Models\\BenefitModel.cs",
@@ -352,7 +374,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "AuthService.cs",
               "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\AuthService.cs",
               "RelativeDocumentMoniker": "NarzedzieHR\\Service\\AuthService.cs",
@@ -364,19 +386,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "BenefitService.cs",
-              "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\BenefitService.cs",
-              "RelativeDocumentMoniker": "NarzedzieHR\\Service\\BenefitService.cs",
-              "ToolTip": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\BenefitService.cs",
-              "RelativeToolTip": "NarzedzieHR\\Service\\BenefitService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T09:08:34.58Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "StanowiskoForm.cs [Projekt]",
               "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Stanowisko\\StanowiskoForm.cs",
               "RelativeDocumentMoniker": "NarzedzieHR\\Forms\\Stanowisko\\StanowiskoForm.cs",
@@ -387,7 +397,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "StanowiskoForm.cs",
               "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Stanowisko\\StanowiskoForm.cs",
               "RelativeDocumentMoniker": "NarzedzieHR\\Forms\\Stanowisko\\StanowiskoForm.cs",
@@ -399,7 +409,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "StanowiskoModel.cs",
               "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Models\\StanowiskoModel.cs",
               "RelativeDocumentMoniker": "NarzedzieHR\\Models\\StanowiskoModel.cs",
@@ -411,7 +421,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Program.cs",
               "RelativeDocumentMoniker": "NarzedzieHR\\Program.cs",
@@ -423,7 +433,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "StanowiskoForm.Designer.cs",
               "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Forms\\Stanowisko\\StanowiskoForm.Designer.cs",
               "RelativeDocumentMoniker": "NarzedzieHR\\Forms\\Stanowisko\\StanowiskoForm.Designer.cs",

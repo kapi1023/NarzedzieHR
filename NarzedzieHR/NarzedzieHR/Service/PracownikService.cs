@@ -229,13 +229,18 @@ namespace NarzedzieHR.Service
         {
             try
             {
+                bool raportExists = CheckIfRaportExists(pracownikId, dateTime);
+                if (raportExists)
+                {
+                    Console.WriteLine("Raport dla tego pracownika już istnieje w tym miesiącu.");
+                    return false;
+                }
+
                 decimal stawkaGodzinowa = GetStawkaGodzinowaByPracownikId(pracownikId);
                 List<BenefitModel> benefits = GetBenefityByPracownikId(pracownikId);
 
-                // Oblicz sumę wartości wszystkich beneficjów
                 decimal sumaBenefitow = benefits.Sum(b => b.Wartosc);
 
-                // Oblicz stawkę wynagrodzenia
                 decimal stawkaWynagrodzenia = (przepracowaneGodziny * stawkaGodzinowa) + sumaBenefitow;
 
                 using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -252,6 +257,27 @@ namespace NarzedzieHR.Service
 
 
                     return rowsAffected > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+
+        private bool CheckIfRaportExists(int pracownikId, DateTime dateTime)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(_connectionString))
+                {
+                    SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM Raport WHERE PracownikId = @PracownikId AND MONTH(DateTime) = MONTH(@DateTime) AND YEAR(DateTime) = YEAR(@DateTime)", connection);
+                    command.Parameters.AddWithValue("@PracownikId", pracownikId);
+                    command.Parameters.AddWithValue("@DateTime", dateTime);
+                    connection.Open();
+                    int count = (int)command.ExecuteScalar();
+                    return count > 0;
                 }
             }
             catch (Exception ex)
