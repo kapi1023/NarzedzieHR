@@ -44,7 +44,7 @@ namespace NarzedzieHR.Service
                     SqlDataAdapter dataAdapter = new SqlDataAdapter();
                     dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM Stanowisko WHERE DzialId = @DzialId", connection);
                     dataAdapter.SelectCommand.Parameters.AddWithValue("@DzialId", dzialId);
-                    dataAdapter.Fill(dataSet);
+                    dataAdapter.Fill(dataSet, "Stanowisko");
                 }
             }
             catch (Exception ex)

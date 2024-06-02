@@ -1,7 +1,9 @@
 ﻿using NarzedzieHR.Models;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace NarzedzieHR.Service
 {
@@ -61,9 +63,9 @@ namespace NarzedzieHR.Service
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     SqlDataAdapter dataAdapter = new SqlDataAdapter();
-                    dataAdapter.SelectCommand = new SqlCommand("SELECT * FROM Pracownik WHERE StanowiskoId = @StanowiskoId", connection);
+                    dataAdapter.SelectCommand = new SqlCommand("SELECT *, CONCAT(Imie, ' ', Nazwisko) AS ImieNazwisko FROM Pracownik WHERE StanowiskoId = @StanowiskoId", connection);
                     dataAdapter.SelectCommand.Parameters.AddWithValue("@StanowiskoId", stanowiskoId);
-                    dataAdapter.Fill(dataSet);
+                    dataAdapter.Fill(dataSet, "Pracownicy");
                 }
             }
             catch (Exception ex)
@@ -223,5 +225,113 @@ namespace NarzedzieHR.Service
                 return false;
             }
         }
+        public bool AddReport(int pracownikId, DateTime dateTime, int przepracowaneGodziny)
+        {
+            try
+            {
+                decimal stawkaGodzinowa = GetStawkaGodzinowaByPracownikId(pracownikId);
+                List<BenefitModel> benefits = GetBenefityByPracownikId(pracownikId);
+
+                // Oblicz sumę wartości wszystkich beneficjów
+                decimal sumaBenefitow = benefits.Sum(b => b.Wartosc);
+
+                // Oblicz stawkę wynagrodzenia
+                decimal stawkaWynagrodzenia = (przepracowaneGodziny * stawkaGodzinowa) + sumaBenefitow;
+
+                using (SqlConnection connection = new SqlConnection(_connectionString))
+                {
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter();
+                    dataAdapter.InsertCommand = new SqlCommand("INSERT INTO Raport (PracownikId, DateTime, PrzepracowaneGodziny, StawkaWynagrodzenia, StanowiskoId) VALUES (@PracownikId, @DateTime, @PrzepracowaneGodziny, @StawkaWynagrodzenia, @StanowiskoId)", connection);
+                    dataAdapter.InsertCommand.Parameters.AddWithValue("@PracownikId", pracownikId);
+                    dataAdapter.InsertCommand.Parameters.AddWithValue("@DateTime", dateTime);
+                    dataAdapter.InsertCommand.Parameters.AddWithValue("@PrzepracowaneGodziny", przepracowaneGodziny);
+                    dataAdapter.InsertCommand.Parameters.AddWithValue("@StawkaWynagrodzenia", stawkaWynagrodzenia);
+                    dataAdapter.InsertCommand.Parameters.AddWithValue("@StanowiskoId", GetStanowiskoIdByPracownikId(pracownikId));
+                    connection.Open();
+                    int rowsAffected = dataAdapter.InsertCommand.ExecuteNonQuery();
+
+
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+
+        public decimal GetStawkaGodzinowaByPracownikId(int pracownikId)
+        {
+            decimal stawkaWynagrodzenia = 0;
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                string query = "SELECT StawkaWynagrodzenia FROM Stanowisko INNER JOIN Pracownik ON Stanowisko.Id = Pracownik.StanowiskoId WHERE Pracownik.Id = @PracownikId";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@PracownikId", pracownikId);
+                    connection.Open();
+
+                    object result = command.ExecuteScalar();
+
+                    if (result != null && result != DBNull.Value)
+                    {
+                        stawkaWynagrodzenia = Convert.ToDecimal(result);
+                    }
+                }
+            }
+
+            return stawkaWynagrodzenia;
+        }
+
+        public List<BenefitModel> GetBenefityByPracownikId(int pracownikId)
+        {
+            List<BenefitModel> benefity = new List<BenefitModel>();
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                string query = "SELECT Benefit.Id, Benefit.Nazwa, Benefit.Opis, Benefit.Wartosc FROM Benefit INNER JOIN BenefitStanowisko ON Benefit.Id = BenefitStanowisko.BenefitId INNER JOIN Stanowisko ON BenefitStanowisko.StanowiskoId = Stanowisko.Id INNER JOIN Pracownik ON Stanowisko.Id = Pracownik.StanowiskoId WHERE Pracownik.Id = @PracownikId";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@PracownikId", pracownikId);
+                    connection.Open();
+
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        BenefitModel benefit = new BenefitModel
+                        {
+                            Id = Convert.ToInt32(reader["Id"]),
+                            Nazwa = Convert.ToString(reader["Nazwa"]),
+                            Opis = Convert.ToString(reader["Opis"]),
+                            Wartosc = Convert.ToDecimal(reader["Wartosc"])
+                        };
+
+                        benefity.Add(benefit);
+                    }
+                }
+            }
+
+            return benefity;
+        }
+
+        private int GetLastInsertedRaportId(SqlConnection connection)
+        {
+            SqlCommand command = new SqlCommand("SELECT TOP 1 Id FROM Raport ORDER BY Id DESC", connection);
+            object result = command.ExecuteScalar();
+            if (result != null && result != DBNull.Value)
+            {
+                return Convert.ToInt32(result);
+            }
+            else
+            {
+                throw new Exception("Error: Last inserted Raport ID not found.");
+            }
+        }
+
     }
 }

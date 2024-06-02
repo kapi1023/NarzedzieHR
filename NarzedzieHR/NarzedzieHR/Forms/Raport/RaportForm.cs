@@ -10,7 +10,7 @@ namespace NarzedzieHR.Forms.Raport
         private readonly PracownikService _pracownikService;
         private readonly DzialService _dzialService;
         private readonly StanowiskoService _stanowiskoService;
-        private readonly ReportService _reportService;
+        private readonly RaportService _reportService;
 
         public RaportForm()
         {
@@ -18,12 +18,13 @@ namespace NarzedzieHR.Forms.Raport
             _pracownikService = new PracownikService();
             _dzialService = new DzialService();
             _stanowiskoService = new StanowiskoService();
-            _reportService = new ReportService();
+            _reportService = new RaportService();
         }
 
         private void RaportForm_Load(object sender, EventArgs e)
         {
             LoadDzialy();
+            DisableFields();
         }
 
         private void LoadDzialy()
@@ -34,14 +35,27 @@ namespace NarzedzieHR.Forms.Raport
             cbxDzial.ValueMember = "Id";
             cbxDzial.SelectedIndex = -1;
         }
-
-        private void cbxDzial_SelectedIndexChanged(object sender, EventArgs e)
+        private void LoadPracownicy(int stanowiskoId)
         {
-            if (cbxDzial.SelectedValue != null)
-            {
-                int dzialId = (int)cbxDzial.SelectedValue;
-                LoadStanowiska(dzialId);
-            }
+            DataSet dataSet = _pracownikService.GetPracownicyByStanowisko(stanowiskoId);
+            cbxPracownik.DataSource = dataSet.Tables["Pracownicy"];
+            cbxPracownik.DisplayMember = "ImieNazwisko";
+            cbxPracownik.ValueMember = "Id";
+            cbxPracownik.SelectedIndex = -1;
+        }
+        private void DisableFields()
+        {
+            cbxStanowisko.Enabled = false;
+            cbxPracownik.Enabled = false;
+            nudPrzepracowaneGodziny.Enabled = false;
+            btnSave.Enabled = false;
+        }
+        private void EnableFields()
+        {
+            cbxStanowisko.Enabled = true;
+            cbxPracownik.Enabled = true;
+            nudPrzepracowaneGodziny.Enabled = true;
+            btnSave.Enabled = true;
         }
 
         private void LoadStanowiska(int dzialId)
@@ -53,23 +67,7 @@ namespace NarzedzieHR.Forms.Raport
             cbxStanowisko.SelectedIndex = -1;
         }
 
-        private void cbxStanowisko_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbxStanowisko.SelectedValue != null)
-            {
-                int stanowiskoId = (int)cbxStanowisko.SelectedValue;
-                LoadPracownicy(stanowiskoId);
-            }
-        }
-
-        private void LoadPracownicy(int stanowiskoId)
-        {
-            DataSet dataSet = _pracownikService.GetPracownicyByStanowisko(stanowiskoId);
-            cbxPracownik.DataSource = dataSet.Tables["Pracownik"];
-            cbxPracownik.DisplayMember = "Nazwisko";
-            cbxPracownik.ValueMember = "Id";
-            cbxPracownik.SelectedIndex = -1;
-        }
+     
 
         private void nudPrzepracowaneGodziny_ValueChanged(object sender, EventArgs e)
         {
@@ -86,10 +84,36 @@ namespace NarzedzieHR.Forms.Raport
             decimal stawka = _pracownikService.GetStawkaByPracownikId(pracownikId);
             decimal wynagrodzenie = przepracowaneGodziny * stawka;
 
-            txtWynagrodzenie.Text = wynagrodzenie.ToString("C2");
+
+        }
+        private void LoadRaporty()
+        {
+            DataTable dataTable = _reportService.GetAllRaporty();
+            dataGridViewRaporty.DataSource = dataTable;
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void LoadRaportyByDzial(int dzialId)
+        {
+            dataGridViewRaporty.DataSource = null;
+            DataTable dataTable = _reportService.GetRaportyByDzial(dzialId);
+            dataGridViewRaporty.DataSource = dataTable;
+        }
+
+        private void LoadRaportyByStanowisko(int stanowiskoId)
+        {
+            dataGridViewRaporty.DataSource = null;
+            DataTable dataTable = _reportService.GetRaportyByStanowisko(stanowiskoId);
+            dataGridViewRaporty.DataSource = dataTable;
+        }
+
+        private void LoadRaportyByPracownik(int pracownikId)
+        {
+            dataGridViewRaporty.DataSource = null;
+            DataTable dataTable = _reportService.GetRaportyByPracownik(pracownikId);
+            dataGridViewRaporty.DataSource = dataTable;
+        }
+
+        private void btnSave_Click_1(object sender, EventArgs e)
         {
             if (cbxPracownik.SelectedValue == null || nudPrzepracowaneGodziny.Value <= 0)
             {
@@ -99,14 +123,15 @@ namespace NarzedzieHR.Forms.Raport
 
             int pracownikId = (int)cbxPracownik.SelectedValue;
             int przepracowaneGodziny = (int)nudPrzepracowaneGodziny.Value;
-            decimal stawkaWynagrodzenia = decimal.Parse(txtWynagrodzenie.Text, System.Globalization.NumberStyles.Currency);
 
-            bool success = _reportService.AddReport(pracownikId, DateTime.Now, przepracowaneGodziny, stawkaWynagrodzenia);
+            bool success = _pracownikService.AddReport(pracownikId, DateTime.Now, przepracowaneGodziny);
 
             if (success)
             {
                 MessageBox.Show("Raport zapisany pomyślnie.");
-                LoadRaporty();
+
+                LoadRaportyByPracownik(pracownikId);
+                
             }
             else
             {
@@ -114,20 +139,42 @@ namespace NarzedzieHR.Forms.Raport
             }
         }
 
-        private void LoadRaporty()
-        {
-            DataTable dataTable = _reportService.GetAllRaporty();
-            dataGridViewRaporty.DataSource = dataTable;
-        }
-
-        private void btnSave_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void label5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbxStanowisko_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            int stanowiskoId;
+
+            if (cbxStanowisko.SelectedValue != null && int.TryParse(cbxStanowisko.SelectedValue.ToString(), out stanowiskoId))
+            {
+                LoadPracownicy(stanowiskoId);
+                LoadRaportyByStanowisko(stanowiskoId);
+
+            }
+        }
+
+        private void cbxDzial_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            int dzialId;
+            if (cbxDzial.SelectedValue != null && int.TryParse(cbxDzial.SelectedValue.ToString(), out dzialId))
+            {
+                LoadStanowiska(dzialId);
+                LoadRaportyByDzial(dzialId);
+                EnableFields();
+
+            }
+        }
+
+        private void cbxPracownik_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int pracownikId;
+            if (cbxPracownik.SelectedValue != null && int.TryParse(cbxPracownik.SelectedValue.ToString(), out pracownikId))
+            {
+                LoadRaportyByPracownik(pracownikId);
+            }
         }
     }
 }

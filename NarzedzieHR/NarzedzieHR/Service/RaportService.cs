@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 
 namespace NarzedzieHR.Service
 {
-    public class ReportService
+    public class RaportService
     {
         private readonly string _connectionString = "data source=sql.bsite.net\\MSSQL2016;initial catalog=kapi1023_;user id=kapi1023_;password=Haslo123#$";
 
@@ -29,37 +29,44 @@ namespace NarzedzieHR.Service
             return dataTable;
         }
 
-        public bool AddReport(int pracownikId, DateTime dateTime, int przepracowaneGodziny, decimal stawkaWynagrodzenia)
-        {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(_connectionString))
-                {
-                    SqlDataAdapter dataAdapter = new SqlDataAdapter();
-                    dataAdapter.InsertCommand = new SqlCommand("INSERT INTO Raport (PracownikId, DateTime, PrzepracowaneGodziny, StawkaWynagrodzenia, StanowiskoId) VALUES (@PracownikId, @DateTime, @PrzepracowaneGodziny, @StawkaWynagrodzenia, @StanowiskoId)", connection);
-                    dataAdapter.InsertCommand.Parameters.AddWithValue("@PracownikId", pracownikId);
-                    dataAdapter.InsertCommand.Parameters.AddWithValue("@DateTime", dateTime);
-                    dataAdapter.InsertCommand.Parameters.AddWithValue("@PrzepracowaneGodziny", przepracowaneGodziny);
-                    dataAdapter.InsertCommand.Parameters.AddWithValue("@StawkaWynagrodzenia", stawkaWynagrodzenia);
-                    dataAdapter.InsertCommand.Parameters.AddWithValue("@StanowiskoId", GetStanowiskoIdByPracownikId(pracownikId));
-                    connection.Open();
-                    int rowsAffected = dataAdapter.InsertCommand.ExecuteNonQuery();
 
-                    return rowsAffected > 0;
-                }
-            }
-            catch (Exception ex)
+        public DataTable GetRaportyByDzial(int dzialId)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                Console.WriteLine(ex.Message);
-                return false;
+                SqlDataAdapter dataAdapter = new SqlDataAdapter();
+                dataAdapter.SelectCommand = new SqlCommand("SELECT Raport.Id,Pracownik.Id,Imie,Nazwisko,DateTime, PrzepracowaneGodziny, StawkaWynagrodzenia FROM Raport JOIN Pracownik ON Pracownik.Id = Raport.PracownikId  WHERE Raport.StanowiskoId IN (SELECT Id FROM Stanowisko WHERE DzialId = @DzialId)", connection);
+                dataAdapter.SelectCommand.Parameters.AddWithValue("@DzialId", dzialId);
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                return dataTable;
             }
         }
 
-        private int GetStanowiskoIdByPracownikId(int pracownikId)
+        public DataTable GetRaportyByStanowisko(int stanowiskoId)
         {
-            // Implementacja metody zwracającej StanowiskoId na podstawie pracownikId
-            // To powinno być zaimplementowane w PracownikService
-            return new PracownikService().GetStanowiskoIdByPracownikId(pracownikId);
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlDataAdapter dataAdapter = new SqlDataAdapter();
+                dataAdapter.SelectCommand = new SqlCommand("SELECT Raport.Id,Pracownik.Id,Imie, Nazwisko,DateTime, PrzepracowaneGodziny, StawkaWynagrodzenia FROM Raport JOIN Pracownik ON Pracownik.Id = Raport.PracownikId  WHERE Raport.StanowiskoId = @StanowiskoId", connection);
+                dataAdapter.SelectCommand.Parameters.AddWithValue("@StanowiskoId", stanowiskoId);
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                return dataTable;
+            }
+        }
+
+        public DataTable GetRaportyByPracownik(int pracownikId)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlDataAdapter dataAdapter = new SqlDataAdapter();
+                dataAdapter.SelectCommand = new SqlCommand("SELECT Raport.Id,Pracownik.Id,Imie,Nazwisko,DateTime, PrzepracowaneGodziny, StawkaWynagrodzenia FROM Raport JOIN Pracownik ON Pracownik.Id = Raport.PracownikId  WHERE Raport.PracownikId = @PracownikId", connection);
+                dataAdapter.SelectCommand.Parameters.AddWithValue("@PracownikId", pracownikId);
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                return dataTable;
+            }
         }
     }
 }

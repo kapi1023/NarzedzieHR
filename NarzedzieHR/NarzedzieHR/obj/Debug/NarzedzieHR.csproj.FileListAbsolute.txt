@@ -73,3 +73,4 @@ C:\Users\owcza\Source\Repos\NarzedzieHR02.06\NarzedzieHR\NarzedzieHR\obj\Debug\N
 C:\Users\owcza\Source\Repos\NarzedzieHR02.06\NarzedzieHR\NarzedzieHR\obj\Debug\NarzedzieHR.exe
 C:\Users\owcza\Source\Repos\NarzedzieHR02.06\NarzedzieHR\NarzedzieHR\obj\Debug\NarzedzieHR.pdb
 C:\Users\owcza\source\repos\NarzedzieHR02.06\NarzedzieHR\NarzedzieHR\obj\Debug\NarzedzieHR.Forms.Raport.RaportForm.resources
+C:\Users\kacpe\OneDrive\Pulpit\AdoDetNet\NarzedzieHR\NarzedzieHR\NarzedzieHR\obj\Debug\NarzedzieHR.Forms.Raport.RaportForm.resources
