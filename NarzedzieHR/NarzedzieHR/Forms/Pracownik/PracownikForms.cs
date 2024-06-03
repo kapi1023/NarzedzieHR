@@ -1,13 +1,8 @@
 ﻿using NarzedzieHR.Models;
 using NarzedzieHR.Service;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NarzedzieHR.Forms.Pracownik
@@ -27,8 +22,8 @@ namespace NarzedzieHR.Forms.Pracownik
             LoadStanowiska();
             ConfigureBindingNavigator();
             LoadPracownicy();
-
         }
+
         private void LoadStanowiska()
         {
             DataSet dataSet = _stanowiskoService.GetAllStanowiska();
@@ -76,7 +71,6 @@ namespace NarzedzieHR.Forms.Pracownik
             }
         }
 
-
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtImie.Text) || string.IsNullOrWhiteSpace(txtNazwisko.Text) || string.IsNullOrWhiteSpace(txtEmail.Text))
@@ -91,12 +85,23 @@ namespace NarzedzieHR.Forms.Pracownik
                 return;
             }
 
-
             DateTime dataZatrudnienia = dtpDataZatrudnienia.Value;
             if (dataZatrudnienia > DateTime.Now)
             {
                 MessageBox.Show("Data zatrudnienia nie może być późniejsza niż dzisiaj.");
                 return;
+            }
+
+            // Sprawdź, czy istnieje już pracownik o takim samym imieniu i nazwisku
+            foreach (DataGridViewRow row in dataGridViewEmployees.Rows)
+            {
+                if (row.Cells["Imie"].Value != null && row.Cells["Nazwisko"].Value != null &&
+                    row.Cells["Imie"].Value.ToString().Equals(txtImie.Text, StringComparison.OrdinalIgnoreCase) &&
+                    row.Cells["Nazwisko"].Value.ToString().Equals(txtNazwisko.Text, StringComparison.OrdinalIgnoreCase))
+                {
+                    MessageBox.Show("Pracownik o takim imieniu i nazwisku już istnieje.");
+                    return;
+                }
             }
 
             PracownikModel pracownik = new PracownikModel
@@ -151,6 +156,18 @@ namespace NarzedzieHR.Forms.Pracownik
                 return;
             }
 
+            // Sprawdź, czy istnieje już pracownik o takim samym imieniu i nazwisku
+            foreach (DataGridViewRow row in dataGridViewEmployees.Rows)
+            {
+                if (row.Index != rowIndex && row.Cells["Imie"].Value != null && row.Cells["Nazwisko"].Value != null &&
+                    row.Cells["Imie"].Value.ToString().Equals(txtImie.Text, StringComparison.OrdinalIgnoreCase) &&
+                    row.Cells["Nazwisko"].Value.ToString().Equals(txtNazwisko.Text, StringComparison.OrdinalIgnoreCase))
+                {
+                    MessageBox.Show("Pracownik o takim imieniu i nazwisku już istnieje.");
+                    return;
+                }
+            }
+
             PracownikModel pracownik = new PracownikModel
             {
                 Id = pracownikId,
@@ -173,6 +190,7 @@ namespace NarzedzieHR.Forms.Pracownik
                 MessageBox.Show("Błąd aktualizacji pracownika.");
             }
         }
+
         private void dataGridViewEmployees_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
@@ -190,19 +208,16 @@ namespace NarzedzieHR.Forms.Pracownik
                     DataRowView item = (DataRowView)cbxPosition.Items[i];
                     if (Convert.ToInt32(item["Id"]) == stanowiskoId)
                     {
-                        cbxPosition.SetItemChecked(i, true);
-                    }
-                    else
-                    {
-                        cbxPosition.SetItemChecked(i, false);
+                        cbxPosition.SelectedIndex = i;
+                        break;
                     }
                 }
             }
         }
+
         private void PracownikForms_Load(object sender, EventArgs e)
         {
         }
-
 
         private void label3_Click(object sender, EventArgs e)
         {

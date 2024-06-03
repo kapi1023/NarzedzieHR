@@ -2,6 +2,7 @@
 using NarzedzieHR.Service;
 using System;
 using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace NarzedzieHR.Forms.Dzial
@@ -82,6 +83,16 @@ namespace NarzedzieHR.Forms.Dzial
             {
                 MessageBox.Show("Nazwa i opis działu są wymagane.");
                 return;
+            }
+
+            // Sprawdź, czy istnieje już dział o takiej samej nazwie
+            foreach (DataGridViewRow row in dataGridViewDepartments.Rows)
+            {
+                if (row.Index != rowIndex && row.Cells["Nazwa"].Value != null && row.Cells["Nazwa"].Value.ToString().Equals(nazwa, StringComparison.OrdinalIgnoreCase))
+                {
+                    MessageBox.Show("Dział o takiej nazwie już istnieje.");
+                    return;
+                }
             }
 
             DzialModel dzial = new DzialModel

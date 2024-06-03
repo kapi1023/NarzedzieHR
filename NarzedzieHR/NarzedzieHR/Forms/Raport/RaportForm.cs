@@ -35,6 +35,7 @@ namespace NarzedzieHR.Forms.Raport
             cbxDzial.ValueMember = "Id";
             cbxDzial.SelectedIndex = -1;
         }
+
         private void LoadPracownicy(int stanowiskoId)
         {
             DataSet dataSet = _pracownikService.GetPracownicyByStanowisko(stanowiskoId);
@@ -43,6 +44,7 @@ namespace NarzedzieHR.Forms.Raport
             cbxPracownik.ValueMember = "Id";
             cbxPracownik.SelectedIndex = -1;
         }
+
         private void DisableFields()
         {
             cbxStanowisko.Enabled = false;
@@ -50,6 +52,7 @@ namespace NarzedzieHR.Forms.Raport
             nudPrzepracowaneGodziny.Enabled = false;
             btnSave.Enabled = false;
         }
+
         private void EnableFields()
         {
             cbxStanowisko.Enabled = true;
@@ -67,8 +70,6 @@ namespace NarzedzieHR.Forms.Raport
             cbxStanowisko.SelectedIndex = -1;
         }
 
-     
-
         private void nudPrzepracowaneGodziny_ValueChanged(object sender, EventArgs e)
         {
             CalculateWynagrodzenie();
@@ -84,12 +85,14 @@ namespace NarzedzieHR.Forms.Raport
             decimal stawka = _pracownikService.GetStawkaByPracownikId(pracownikId);
             decimal wynagrodzenie = przepracowaneGodziny * stawka;
 
-
+            //txtWynagrodzenie.Text = wynagrodzenie.ToString("C2");
         }
+
         private void LoadRaporty()
         {
             DataTable dataTable = _reportService.GetAllRaporty();
             dataGridViewRaporty.DataSource = dataTable;
+            CustomizeDataGridView();
         }
 
         private void LoadRaportyByDzial(int dzialId)
@@ -97,6 +100,7 @@ namespace NarzedzieHR.Forms.Raport
             dataGridViewRaporty.DataSource = null;
             DataTable dataTable = _reportService.GetRaportyByDzial(dzialId);
             dataGridViewRaporty.DataSource = dataTable;
+            CustomizeDataGridView();
         }
 
         private void LoadRaportyByStanowisko(int stanowiskoId)
@@ -104,6 +108,7 @@ namespace NarzedzieHR.Forms.Raport
             dataGridViewRaporty.DataSource = null;
             DataTable dataTable = _reportService.GetRaportyByStanowisko(stanowiskoId);
             dataGridViewRaporty.DataSource = dataTable;
+            CustomizeDataGridView();
         }
 
         private void LoadRaportyByPracownik(int pracownikId)
@@ -111,6 +116,46 @@ namespace NarzedzieHR.Forms.Raport
             dataGridViewRaporty.DataSource = null;
             DataTable dataTable = _reportService.GetRaportyByPracownik(pracownikId);
             dataGridViewRaporty.DataSource = dataTable;
+            CustomizeDataGridView();
+        }
+
+        private void CustomizeDataGridView()
+        {
+            // Ukrywanie kolumn ID
+            if (dataGridViewRaporty.Columns.Contains("Id"))
+            {
+                dataGridViewRaporty.Columns["Id"].Visible = false;
+            }
+            if (dataGridViewRaporty.Columns.Contains("Id1"))
+            {
+                dataGridViewRaporty.Columns["Id1"].Visible = false;
+            }
+
+            if (dataGridViewRaporty.Columns.Contains("StanowiskoId"))
+            {
+                dataGridViewRaporty.Columns["StanowiskoId"].Visible = false;
+            }
+
+            if (dataGridViewRaporty.Columns.Contains("PracownikId"))
+            {
+                dataGridViewRaporty.Columns["PracownikId"].Visible = false;
+            }
+
+            // Zmiana nagłówków kolumn
+            if (dataGridViewRaporty.Columns.Contains("DateTime"))
+            {
+                dataGridViewRaporty.Columns["DateTime"].HeaderText = "Data zaksięgowania";
+            }
+
+            if (dataGridViewRaporty.Columns.Contains("PrzepracowaneGodziny"))
+            {
+                dataGridViewRaporty.Columns["PrzepracowaneGodziny"].HeaderText = "Przepracowane Godziny";
+            }
+
+            if (dataGridViewRaporty.Columns.Contains("StawkaWynagrodzenia"))
+            {
+                dataGridViewRaporty.Columns["StawkaWynagrodzenia"].HeaderText = "Wynagrodzenie";
+            }
         }
 
         private void btnSave_Click_1(object sender, EventArgs e)
@@ -129,19 +174,12 @@ namespace NarzedzieHR.Forms.Raport
             if (success)
             {
                 MessageBox.Show("Raport zapisany pomyślnie.");
-
                 LoadRaportyByPracownik(pracownikId);
-                
             }
             else
             {
-                MessageBox.Show("Błąd podczas zapisywania raportu.");
+                MessageBox.Show("Błąd podczas zapisywania raportu. Raport wynagrodzenia na dany miesiąc już istnieje dla tego pracownika.");
             }
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void cbxStanowisko_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -152,7 +190,6 @@ namespace NarzedzieHR.Forms.Raport
             {
                 LoadPracownicy(stanowiskoId);
                 LoadRaportyByStanowisko(stanowiskoId);
-
             }
         }
 
@@ -164,7 +201,6 @@ namespace NarzedzieHR.Forms.Raport
                 LoadStanowiska(dzialId);
                 LoadRaportyByDzial(dzialId);
                 EnableFields();
-
             }
         }
 
