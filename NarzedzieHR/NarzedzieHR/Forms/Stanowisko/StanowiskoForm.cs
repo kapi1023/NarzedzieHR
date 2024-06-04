@@ -182,6 +182,20 @@ namespace NarzedzieHR.Forms.Stanowisko
             decimal stawkaWynagrodzenia = Convert.ToDecimal(nupStawka.Value);
             int selectedDzialId = (int)cbxDepartments.SelectedValue;
 
+            // Walidacja wynagrodzenia
+            if (stawkaWynagrodzenia <= 0)
+            {
+                MessageBox.Show("Stawka wynagrodzenia musi być większa od zera.");
+                return;
+            }
+
+            // Walidacja działu
+            if (cbxDepartments.SelectedIndex == -1)
+            {
+                MessageBox.Show("Wybierz dział dla stanowiska.");
+                return;
+            }
+
             // Sprawdzenie, czy stanowisko o takiej samej nazwie już istnieje
             foreach (DataGridViewRow row in dataGridViewStanowiska.Rows)
             {

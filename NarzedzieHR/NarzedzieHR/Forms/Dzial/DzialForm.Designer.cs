@@ -69,7 +69,7 @@
             this.dataGridViewDepartments.RowHeadersVisible = false;
             this.dataGridViewDepartments.RowHeadersWidth = 51;
             this.dataGridViewDepartments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewDepartments.Size = new System.Drawing.Size(414, 471);
+            this.dataGridViewDepartments.Size = new System.Drawing.Size(405, 384);
             this.dataGridViewDepartments.TabIndex = 12;
             this.dataGridViewDepartments.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDepartments_CellClick_1);
             this.dataGridViewDepartments.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDepartments_CellContentClick);
@@ -207,7 +207,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::NarzedzieHR.Properties.Resources.free_employees_1407193_1190603;
-            this.pictureBox1.Location = new System.Drawing.Point(575, 51);
+            this.pictureBox1.Location = new System.Drawing.Point(555, 51);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(156, 139);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -217,7 +217,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(470, 251);
+            this.label2.Location = new System.Drawing.Point(450, 251);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 16);
@@ -227,7 +227,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(470, 213);
+            this.label1.Location = new System.Drawing.Point(450, 213);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 16);
@@ -236,7 +236,7 @@
             // 
             // txtOpis
             // 
-            this.txtOpis.Location = new System.Drawing.Point(535, 248);
+            this.txtOpis.Location = new System.Drawing.Point(515, 248);
             this.txtOpis.Margin = new System.Windows.Forms.Padding(4);
             this.txtOpis.Name = "txtOpis";
             this.txtOpis.Size = new System.Drawing.Size(254, 22);
@@ -244,7 +244,7 @@
             // 
             // txtNazwa
             // 
-            this.txtNazwa.Location = new System.Drawing.Point(535, 213);
+            this.txtNazwa.Location = new System.Drawing.Point(515, 213);
             this.txtNazwa.Margin = new System.Windows.Forms.Padding(4);
             this.txtNazwa.Name = "txtNazwa";
             this.txtNazwa.Size = new System.Drawing.Size(254, 22);
@@ -254,7 +254,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(850, 554);
+            this.ClientSize = new System.Drawing.Size(850, 445);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtOpis);
