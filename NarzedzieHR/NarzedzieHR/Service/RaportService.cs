@@ -35,7 +35,7 @@ namespace NarzedzieHR.Service
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlDataAdapter dataAdapter = new SqlDataAdapter();
-                dataAdapter.SelectCommand = new SqlCommand("SELECT Raport.Id,Pracownik.Id,Imie,Nazwisko,DateTime, PrzepracowaneGodziny, StawkaWynagrodzenia FROM Raport JOIN Pracownik ON Pracownik.Id = Raport.PracownikId  WHERE Raport.StanowiskoId IN (SELECT Id FROM Stanowisko WHERE DzialId = @DzialId)", connection);
+                dataAdapter.SelectCommand = new SqlCommand("SELECT Raport.Id,Pracownik.Id,Imie,Nazwisko,DateTime, PrzepracowaneGodziny, Wynagrodzenie FROM Raport JOIN Pracownik ON Pracownik.Id = Raport.PracownikId  WHERE Raport.StanowiskoId IN (SELECT Id FROM Stanowisko WHERE DzialId = @DzialId)", connection);
                 dataAdapter.SelectCommand.Parameters.AddWithValue("@DzialId", dzialId);
                 DataTable dataTable = new DataTable();
                 dataAdapter.Fill(dataTable);
@@ -48,7 +48,7 @@ namespace NarzedzieHR.Service
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlDataAdapter dataAdapter = new SqlDataAdapter();
-                dataAdapter.SelectCommand = new SqlCommand("SELECT Raport.Id,Pracownik.Id,Imie, Nazwisko,DateTime, PrzepracowaneGodziny, StawkaWynagrodzenia FROM Raport JOIN Pracownik ON Pracownik.Id = Raport.PracownikId  WHERE Raport.StanowiskoId = @StanowiskoId", connection);
+                dataAdapter.SelectCommand = new SqlCommand("SELECT Raport.Id,Pracownik.Id,Imie, Nazwisko,DateTime, PrzepracowaneGodziny, Wynagrodzenie FROM Raport JOIN Pracownik ON Pracownik.Id = Raport.PracownikId  WHERE Raport.StanowiskoId = @StanowiskoId", connection);
                 dataAdapter.SelectCommand.Parameters.AddWithValue("@StanowiskoId", stanowiskoId);
                 DataTable dataTable = new DataTable();
                 dataAdapter.Fill(dataTable);
@@ -61,7 +61,7 @@ namespace NarzedzieHR.Service
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlDataAdapter dataAdapter = new SqlDataAdapter();
-                dataAdapter.SelectCommand = new SqlCommand("SELECT Raport.Id,Pracownik.Id,Imie,Nazwisko,DateTime, PrzepracowaneGodziny, StawkaWynagrodzenia FROM Raport JOIN Pracownik ON Pracownik.Id = Raport.PracownikId  WHERE Raport.PracownikId = @PracownikId", connection);
+                dataAdapter.SelectCommand = new SqlCommand("SELECT Raport.Id,Pracownik.Id,Imie,Nazwisko,DateTime, PrzepracowaneGodziny, Wynagrodzenie FROM Raport JOIN Pracownik ON Pracownik.Id = Raport.PracownikId  WHERE Raport.PracownikId = @PracownikId", connection);
                 dataAdapter.SelectCommand.Parameters.AddWithValue("@PracownikId", pracownikId);
                 DataTable dataTable = new DataTable();
                 dataAdapter.Fill(dataTable);
