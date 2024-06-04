@@ -246,11 +246,11 @@ namespace NarzedzieHR.Service
                 using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
                     SqlDataAdapter dataAdapter = new SqlDataAdapter();
-                    dataAdapter.InsertCommand = new SqlCommand("INSERT INTO Raport (PracownikId, DateTime, PrzepracowaneGodziny, StawkaWynagrodzenia, StanowiskoId) VALUES (@PracownikId, @DateTime, @PrzepracowaneGodziny, @StawkaWynagrodzenia, @StanowiskoId)", connection);
+                    dataAdapter.InsertCommand = new SqlCommand("INSERT INTO Raport (PracownikId, DateTime, PrzepracowaneGodziny, Wynagrodzenie, StanowiskoId) VALUES (@PracownikId, @DateTime, @PrzepracowaneGodziny, @Wynagrodzenie, @StanowiskoId)", connection);
                     dataAdapter.InsertCommand.Parameters.AddWithValue("@PracownikId", pracownikId);
                     dataAdapter.InsertCommand.Parameters.AddWithValue("@DateTime", dateTime);
                     dataAdapter.InsertCommand.Parameters.AddWithValue("@PrzepracowaneGodziny", przepracowaneGodziny);
-                    dataAdapter.InsertCommand.Parameters.AddWithValue("@StawkaWynagrodzenia", stawkaWynagrodzenia);
+                    dataAdapter.InsertCommand.Parameters.AddWithValue("@Wynagrodzenie", stawkaWynagrodzenia);
                     dataAdapter.InsertCommand.Parameters.AddWithValue("@StanowiskoId", GetStanowiskoIdByPracownikId(pracownikId));
                     connection.Open();
                     int rowsAffected = dataAdapter.InsertCommand.ExecuteNonQuery();

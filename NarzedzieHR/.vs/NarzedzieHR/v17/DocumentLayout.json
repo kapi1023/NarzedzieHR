@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|c:\\users\\kacpe\\onedrive\\pulpit\\adodetnet\\narzedziehr\\narzedziehr\\narzedziehr\\service\\raportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\service\\raportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|c:\\users\\kacpe\\onedrive\\pulpit\\adodetnet\\narzedziehr\\narzedziehr\\narzedziehr\\service\\pracownikservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\service\\pracownikservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\narzedziehr\\service\\pracownikservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\service\\pracownikservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\narzedziehr\\service\\raportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|solutionrelative:narzedziehr\\service\\raportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A0C897C0-443F-4B50-82FC-164C169CDA6E}|NarzedzieHR\\NarzedzieHR.csproj|C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\narzedziehr\\service\\credentialsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -118,7 +118,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
@@ -133,16 +133,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "RaportService.cs",
               "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\RaportService.cs",
               "RelativeDocumentMoniker": "NarzedzieHR\\Service\\RaportService.cs",
               "ToolTip": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\RaportService.cs",
               "RelativeToolTip": "NarzedzieHR\\Service\\RaportService.cs",
-              "ViewState": "AQIAABkAAAAAAAAAAAAawCYAAABXAAAA",
+              "ViewState": "AQIAABAAAAAAAAAAAAAgwC0AAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-02T20:37:06.863Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-02T20:37:06.863Z"
             },
             {
               "$type": "Document",
@@ -192,15 +191,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "PracownikService.cs",
               "DocumentMoniker": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\PracownikService.cs",
               "RelativeDocumentMoniker": "NarzedzieHR\\Service\\PracownikService.cs",
               "ToolTip": "C:\\Users\\kacpe\\OneDrive\\Pulpit\\AdoDetNet\\NarzedzieHR\\NarzedzieHR\\NarzedzieHR\\Service\\PracownikService.cs",
               "RelativeToolTip": "NarzedzieHR\\Service\\PracownikService.cs",
-              "ViewState": "AQIAAP0AAAAAAAAAAAAawAwBAAAoAAAA",
+              "ViewState": "AQIAAOkAAAAAAAAAAAAQwPgAAADkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-02T20:38:24.493Z"
+              "WhenOpened": "2024-06-02T20:38:24.493Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
